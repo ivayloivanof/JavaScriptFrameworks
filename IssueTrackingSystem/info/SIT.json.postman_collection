@@ -1,0 +1,586 @@
+{
+	"id": "65214140-acef-7ff8-00cf-ec96a4299d47",
+	"name": "SoftUni Issue Tracker",
+	"description": "",
+	"order": [
+		"8e24223e-5da0-70c4-9580-32d419a0e559",
+		"cb3ec151-dbe0-edbc-bc14-8a28733ebdbc",
+		"2ca42d07-e82e-47b1-b5aa-4f101767b18e",
+		"1a9b8858-b6a2-3686-61bc-d5fc3ac7e497",
+		"f4d002db-e247-e015-f4d3-50e72ea8e1ee",
+		"6cbcea46-a315-0ea7-54f4-9a3ff37b3557",
+		"a06b7a12-a91f-9cb5-b4cd-92a2bb109224",
+		"beb156f2-bd37-84be-7a2f-483775305946",
+		"b57517d0-147c-225b-a55d-ad266cd1b02b",
+		"3e4078b0-2e43-1939-7515-87f6adbf4a2c",
+		"bc4c976c-a351-2d05-396b-a49253c15935",
+		"ce1701a5-8999-04eb-6ce3-89a1160bdbdb",
+		"29e3682f-d95a-8c10-de17-9097907a54e4",
+		"cd6be072-a232-fab2-d462-1e8a3190ebfa"
+	],
+	"folders": [],
+	"timestamp": 1459073943983,
+	"owner": "",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "1a9b8858-b6a2-3686-61bc-d5fc3ac7e497",
+			"headers": "",
+			"url": "http://localhost:49389/projects/2",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "Name",
+					"value": "entirely new project",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Description",
+					"value": "random desc",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "ProjectKey",
+					"value": "123adfj",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "TransitionSchemeId",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "labels[0].Name",
+					"value": "Label3",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "labels[1].Name",
+					"value": "Label4",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "priorities[0].Name",
+					"value": "URGENT",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "priorities[1].Name",
+					"value": "Priority2",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459425638868,
+			"name": "Get project by id",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		},
+		{
+			"id": "29e3682f-d95a-8c10-de17-9097907a54e4",
+			"headers": "",
+			"url": "http://localhost:49389/issues/4/comments",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "Text",
+					"value": "blabla random spammer 2",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459426701613,
+			"name": "Add comment to issue",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		},
+		{
+			"id": "2ca42d07-e82e-47b1-b5aa-4f101767b18e",
+			"headers": "",
+			"url": "http://localhost:49389/projects/",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"data": [
+				{
+					"key": "Name",
+					"value": "entirely new project",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Description",
+					"value": "random desc",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "ProjectKey",
+					"value": "123adfj",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "TransitionSchemeId",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "labels[0].Name",
+					"value": "Label3",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "labels[1].Name",
+					"value": "Label4",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "priorities[0].Name",
+					"value": "URGENT",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "priorities[1].Name",
+					"value": "Priority2",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "Get all projects",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1459100507308,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "3e4078b0-2e43-1939-7515-87f6adbf4a2c",
+			"headers": "",
+			"url": "http://localhost:49389/issues/me?orderBy=Project.Name desc, IssueKey&pageSize=2&pageNumber=1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459507326812,
+			"name": "Get my issues",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		},
+		{
+			"id": "6cbcea46-a315-0ea7-54f4-9a3ff37b3557",
+			"headers": "",
+			"url": "http://localhost:49389/issues/4",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "Title",
+					"value": "new title for issuee",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Description",
+					"value": "blablablabla lorem",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "DueDate",
+					"value": "2016-5-25",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "AssigneeId",
+					"value": "275c1f84-1e53-47f0-93b8-cbc379c5d0e7",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "PriorityId",
+					"value": "4",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Labels[0].Name",
+					"value": "NewLabel",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Labels[1].Name",
+					"value": "Label5",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459426667413,
+			"name": "Edit issue",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		},
+		{
+			"id": "8e24223e-5da0-70c4-9580-32d419a0e559",
+			"headers": "",
+			"url": "http://localhost:49389/projects/",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "Name",
+					"value": "entirely new project",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Description",
+					"value": "random desc",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "ProjectKey",
+					"value": "123adfj",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "labels[0].Name",
+					"value": "Label1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "labels[1].Name",
+					"value": "Label2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "priorities[0].Name",
+					"value": "Low",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "priorities[1].Name",
+					"value": "Urgent",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "LeadId",
+					"value": "275c1f84-1e53-47f0-93b8-cbc379c5d0e7",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459425606127,
+			"name": "Add project",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		},
+		{
+			"id": "a06b7a12-a91f-9cb5-b4cd-92a2bb109224",
+			"headers": "",
+			"url": "http://localhost:49389/issues/4/changestatus?statusid=7",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459426665568,
+			"name": "Change issue status",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		},
+		{
+			"id": "b57517d0-147c-225b-a55d-ad266cd1b02b",
+			"headers": "",
+			"url": "http://localhost:49389/issues/5",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"data": null,
+			"dataMode": "params",
+			"name": "Get Issue by id",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1459342720463,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "bc4c976c-a351-2d05-396b-a49253c15935",
+			"headers": "",
+			"url": "http://localhost:49389/issues/?filter=Priority.Name == \"In Progress\" or DueDate.Day == 21&pageSize=2&pageNumber=1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459507424395,
+			"name": "Get issues",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		},
+		{
+			"id": "beb156f2-bd37-84be-7a2f-483775305946",
+			"headers": "",
+			"url": "http://localhost:49389/projects/5/issues",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459268071757,
+			"name": "Get project issues",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		},
+		{
+			"id": "cb3ec151-dbe0-edbc-bc14-8a28733ebdbc",
+			"headers": "",
+			"url": "http://localhost:49389/projects/2",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "Name",
+					"value": "new titlee",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Description",
+					"value": "random desc",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "labels[0].Name",
+					"value": "Label8",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "labels[1].Name",
+					"value": "Label2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "priorities[0].Name",
+					"value": "URGENT",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "priorities[1].Name",
+					"value": "Priority5",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "LeadId",
+					"value": "275c1f84-1e53-47f0-93b8-cbc379c5d0e7",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459425621929,
+			"name": "Edit project",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		},
+		{
+			"id": "cd6be072-a232-fab2-d462-1e8a3190ebfa",
+			"headers": "",
+			"url": "http://localhost:49389/issues/10/comments",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"data": null,
+			"dataMode": "params",
+			"name": "Get comments for issue",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1459420464075,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "ce1701a5-8999-04eb-6ce3-89a1160bdbdb",
+			"headers": "",
+			"url": "http://localhost:49389/issues/?filter=issuekey.contains(\"24\")",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"data": null,
+			"dataMode": "params",
+			"name": "Get issues by .contains() method",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1459337683562,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "f4d002db-e247-e015-f4d3-50e72ea8e1ee",
+			"headers": "",
+			"url": "http://localhost:49389/issues/",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "Title",
+					"value": "issue 1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Description",
+					"value": "ArgumentException should describe the exact problem",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "DueDate",
+					"value": "2016/03/21",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "ProjectId",
+					"value": "2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "AssigneeId",
+					"value": "275c1f84-1e53-47f0-93b8-cbc379c5d0e7",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "PriorityId",
+					"value": "4",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Labels[0].Name",
+					"value": "label1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "Labels[1].Name",
+					"value": "software",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1459425648777,
+			"name": "add issue",
+			"description": "",
+			"collectionId": "65214140-acef-7ff8-00cf-ec96a4299d47",
+			"responses": []
+		}
+	]
+}

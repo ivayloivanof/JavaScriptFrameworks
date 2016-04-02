@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+  <style>
+  #statuses>li { margin-bottom: 20px; }
+  #statuses>li>ul>li { margin-bottom: 10px}
+  </style>
+</head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<body>
+<div class=jumbotron style="height:1000px; padding-left: 10px;">
+<h2 style="margin-top: 0"> Edit Project</h2>
+<div>
+  <form style="width:48%" class="pull-left">
+  <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Project Name" value="SIT">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Leader</label>
+      <select class="form-control">
+      	<option>Pesho</option>
+      	<option>Gosho</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Project Key</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Project Key" value="123qwe">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Priorities (comma separated)</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Available Priorities For The Issues" value="Low, Medium, Urgent">
+    </div>
+     <div class="form-group">
+      <label for="exampleInputPassword1">Labels (comma separated)</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Labels" value="Softuni, software">
+      <br>
+    </div>
+     <div class="form-group">
+      <label for="exampleInputPassword1">Description</label>
+      <textarea class="form-control" placeholder="Description">Project for managing issues for specific projects with priorities, status transitions and labels</textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Edit Project</button>
+  </form>
+  <form style="width:48%" class="pull-right">
+  <h3>Status transition scheme</h3>
+    <ul id="statuses">
+      <li>Open <button class="btn btn-sm btn-info">add element</button> <button class="btn btn-sm btn-info">add child element</button></li>
+      <li>
+      In Progress <button class="btn btn-sm btn-info">add element</button> <button class="btn btn-sm btn-info">add child element</button>
+        <ul>
+          <li>
+            Closed <button class="btn btn-sm btn-info">add element</button> <button class="btn btn-sm btn-info">add child element</button>
+          </li>
+        </ul>
+      </li>
+      <li>
+      Resolved <button class="btn btn-sm btn-info">add element</button> <button class="btn btn-sm btn-info">add child element</button>
+        <ul>
+          <li>
+            Closed <button class="btn btn-sm btn-info">add element</button> <button class="btn btn-sm btn-info">add child element</button>
+          </li>
+        </ul>
+        <ul>
+              <li>
+          Reopened <button class="btn btn-sm btn-info">add element</button> <button class="btn btn-sm btn-info">add child element</button>
+          <ul>
+              <li>
+                Closed <button class="btn btn-sm btn-info">add element</button> <button class="btn btn-sm btn-info">add child element</button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </form>
+  </div>
+  </div>
+</div>
+</body>
+</html>

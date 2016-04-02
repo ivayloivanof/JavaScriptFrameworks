@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+</head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<body>
+<div class=jumbotron>
+<h2 style="margin-top: 0"> Add new Issue</h2>
+<form>
+<div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Issue Title">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Assignee</label>
+    <select class="form-control">
+    	<option>Kircho</option>
+    	<option>Petkancho</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Project</label>
+    <select class="form-control">
+      <option>SIT</option>
+      <option>Cart Management</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Issue Key</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Issue Key">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Priority</label>
+    <select class="form-control">
+      <option>Urgent</option>
+      <option>Medium</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Due Date</label>
+    <input type="date" class="form-control" id="exampleInputEmail1" placeholder="dd/mm/yyyy">
+  </div>
+   <div class="form-group">
+    <label for="exampleInputPassword1">Labels (comma separated)</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Labels" value="Soft">
+    <br>
+  </div>
+   <div class="form-group">
+    <label for="exampleInputPassword1">Description</label>
+    <textarea class="form-control" placeholder="Description"></textarea>
+  </div>
+  <button type="submit" class="btn btn-success">Add Issue</button>
+</form>
+</div>
+</body>
+</html>

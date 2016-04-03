@@ -1,0 +1,14 @@
+{
+  "name": "IssueTrackingSystem",
+  "description": "SoftUni Project - Issue Tracking System",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ivayloivanof/JavaScriptFrameworks",
+  "license": "CC0 1.0 Universal",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.x",
+    "jquery": "2.2.2",
+    "bootstrap": "3.3.6",
+    "angular-route": "1.5.3"
+  }
+}

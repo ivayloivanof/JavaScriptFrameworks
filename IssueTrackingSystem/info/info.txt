@@ -8,5 +8,5 @@ http://softuni-social-network.azurewebsites.net/help
 
 
 TODO add requester and config
-TODO add dashboard
+
 TODO add Login and Register page

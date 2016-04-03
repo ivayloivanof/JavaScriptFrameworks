@@ -5,3 +5,8 @@ http://softuni-social-network.azurewebsites.net/api/
 -----------------------------------------------------------------
 Services help page (online documentation):
 http://softuni-social-network.azurewebsites.net/help
+
+
+TODO add requester and config
+TODO add dashboard
+TODO add Login and Register page

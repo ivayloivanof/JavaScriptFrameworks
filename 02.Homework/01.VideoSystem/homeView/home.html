@@ -1,17 +1,21 @@
-<ul>
-    //TODO add ng-repeat
-    <li>{{video[0].title}}</li>
-    <li><img ng-src="{{video[0].pictureUrl}}" alt="..."></li>
-    <li>{{video[0].length}}</li>
-    <li>{{video[0].category}}</li>
-    <li>{{video[0].subscribers}}</li>
-    <li>{{video[0].date}}</li>
-    <li>{{video[0].haveSubtitles}}</li>
+<div ng-repeat="v in video">
     <ul>
-        <li>{{video[0].comments[0].username}}</li>
-        <li>{{video[0].comments[0].content}}</li>
-        <li>{{video[0].comments[0].date}}</li>
-        <li>{{video[0].comments[0].likes}}</li>
-        <li>{{video[0].comments[0].websiteUrl}}</li>
+        //TODO add ng-repeat
+        <li>{{v.title}}</li>
+        <li><img ng-src="{{v.pictureUrl}}" alt="..."></li>
+        <li>{{v.length}}</li>
+        <li>{{v.category}}</li>
+        <li>{{v.subscribers}}</li>
+        <li>{{v.date}}</li>
+        <li>{{v.haveSubtitles}}</li>
+        <li ng-repeat="comment in v.comments">
+        <ul>
+            <li>{{comment.username}}</li>
+            <li>{{comment.content}}</li>
+            <li>{{comment.date}}</li>
+            <li>{{comment.likes}}</li>
+            <li>{{comment.websiteUrl}}</li>
+        </ul>
+        </li>
     </ul>
-</ul>
+</div>

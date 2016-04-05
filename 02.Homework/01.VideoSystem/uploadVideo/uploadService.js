@@ -2,8 +2,6 @@ videoSystem.service('$videoFile', function () {
 	var listOfVideos = [];
 
 	var addVideo = function(newVideo) {
-
-		//TODO add validation
 		listOfVideos.push(newVideo);
 	};
 

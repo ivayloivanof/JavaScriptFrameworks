@@ -5,6 +5,11 @@
   "homepage": "https://github.com/ivayloivanof/JavaScriptFrameworks",
   "license": "CC0 1.0 Universal",
   "private": true,
+  "author" : "Ivaylo Ivanov (ivaylo.ivanof@gmail.com)",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
   "dependencies": {
     "angular": "1.4.x",
     "jquery": "2.2.2",

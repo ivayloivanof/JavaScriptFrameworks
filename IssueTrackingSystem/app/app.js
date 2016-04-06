@@ -3,23 +3,8 @@ var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute']);
 IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
 		.when('/', {
-			templateUrl : 'index.html',
+			templateUrl : 'home.html',
 			controller : 'Home'
-		})
-		.when('/dashboard', {
-		templateUrl : 'view/dashboard/index.html',
-		controller : 'Dashboard'
-		})
-		.when('/login', {
-			templateUrl : 'view/login/login.html',
-			controller : 'Login'
-		})
-		.when('/Register', {
-			templateUrl : 'view/login/register.html',
-			controller : 'Register'
-		})
-		.otherwise({
-			redirectTo : '/'
 		})
 }]);
 

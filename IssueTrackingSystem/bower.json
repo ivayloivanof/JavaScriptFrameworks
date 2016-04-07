@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "homepage": "https://github.com/ivayloivanof/JavaScriptFrameworks",
   "license": "CC0 1.0 Universal",
-  "private": true,
+  "private": false,
   "author" : "Ivaylo Ivanov (ivaylo.ivanof@gmail.com)",
   "ignore": [
     "node_modules",

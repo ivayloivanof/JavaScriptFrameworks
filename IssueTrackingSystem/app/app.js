@@ -1,4 +1,4 @@
-var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute']);
+var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage']);
 
 IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
@@ -24,6 +24,7 @@ IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-IssueTrackingSystem.controller('Home', ['$scope', function ($scope) {
+IssueTrackingSystem.controller('Home', ['$scope', 'requester', '$sessionStorage', function ($scope, requester, $sessionStorage) {
 	console.log('This is home controller!');
+	console.log($sessionStorage);
 }]);

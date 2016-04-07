@@ -1,5 +1,5 @@
-(function() {
-	IssueTrackingSystem.factory('requester', ['$http', function ($http) {
+(function () {
+	IssueTrackingSystem.factory('requester', ['$http', '$sessionStorage', function ($http, $sessionStorage) {
 
 		function Requester() {
 			this.BASEURL = 'http://softuni-social-network.azurewebsites.net/api/';
@@ -12,19 +12,44 @@
 				data: 'username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password),
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function successCallback(response) {
-				console.log(response);
+				$sessionStorage.userName = response.data.userName;
+				$sessionStorage.userAccessToken = response.data.access_token;
 			}, function errorCallback(error) {
 				console.log(error);
 			});
 		};
-
 
 		return new Requester();
 	}]);
 })();
 
 
-
+var a = {
+	"data":
+			{
+				"access_token":"XOzX10IMqhKVSz02BPzswlvOeCt8uNPtY5OV1aTt2r2l1j62IWW0lWwjWQApmgJpoJ63i4jllLBuyW70tqMpY8VrLCMl8ODVvPdZOGVlUWcMHKTD-tVKqRXVQZY9ESuq5BAL7UMFYODqcOhOxQ3puvFObskvPBbI_k3Ft4pbwe1OQ_peo_esc4zp5X74LKYX5naRilHSYGa6s9TQd89AsBORntQs3QrxA04VMYOiCxUFotwNUbxPfes5wSzXk6SHMdmONTIaBLRqBUZc_VqieVH6tKkuPz6SogdbJ6jj2JapzLPFruxq4zC9qDqXVPR28DNmPvSpM9JqNqEk1upZCKKMEFa668crca8BeY3KAc91-3jMNUqStu7Bq13SRjhmXVYcKPSBCXm0JFi-0mI4hhVBA5-nH3f7SaRCLAD95R6EDrmRZOtxfVDAJKU75ZbVh-LCWyU6-IXj0_REoon4CLDNDVpH-r1Fm9hEG6eOxd5PZczfk-NxaEcFKG54AjEq",
+				"token_type":"bearer",
+				"expires_in": 31535999,
+				"userName":	"n1p3ha",
+				".issued" : "Thu, 07 Apr 2016 19:59:22 GMT",
+				".expires" : "Fri, 07 Apr 2017 19:59:22 GMT"
+			},
+	"status" : 200,
+	"config" :
+			{
+				"method" : "POST",
+				"transformRequest" : [null],
+				"transformResponse" : [null],
+				"url" : "http://softuni-social-network.azurewebsites.net/api//users/login",
+				"data" : "username=n1p3ha&password=666666",
+				"headers":
+					{
+						"Content-Type":"application/x-www-form-urlencoded",
+						"Accept":"application/json, text/plain, */*"
+					}
+			},
+	"statusText":"OK"
+};
 
 var app = app || {};
 

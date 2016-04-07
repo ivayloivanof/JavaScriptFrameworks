@@ -2,13 +2,28 @@ var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute']);
 
 IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
-		.when('/', {
-			templateUrl : 'home.html',
+		.when('/home', {
+			templateUrl : 'app/template/home.html',
 			controller : 'Home'
+		})
+		.when('/login', {
+			templateUrl : 'app/template/user/login.html',
+			controller : 'Login'
+		})
+		.when('/signup', {
+			templateUrl : 'app/template/user/signup.html',
+			controller : 'SignUp'
+		})
+		.when('/edit-issue', {
+			templateUrl : 'app/template/edit-issue/edit-issue.html',
+			controller : 'EditIssue'
+		})
+		.otherwise({
+			redirectTo: '/home'
 		})
 }]);
 
 
 IssueTrackingSystem.controller('Home', ['$scope', function ($scope) {
-	console.log($scope);
+	console.log('This is home controller!');
 }]);

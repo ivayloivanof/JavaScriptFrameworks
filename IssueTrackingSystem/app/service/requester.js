@@ -1,5 +1,6 @@
 (function () {
-	IssueTrackingSystem.factory('requester', ['$http', '$sessionStorage', function ($http, $sessionStorage) {
+	IssueTrackingSystem.factory('requester', ['$http', '$sessionStorage', '$location',
+		function ($http, $sessionStorage, $location) {
 
 		function Requester() {
 			this.BASEURL = 'http://softuni-social-network.azurewebsites.net/api/';
@@ -12,10 +13,11 @@
 				data: 'username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password),
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function successCallback(response) {
-				$sessionStorage.userName = response.data.userName;
-				$sessionStorage.userAccessToken = response.data.access_token;
+					$sessionStorage.userName = response.data.userName;
+					$sessionStorage.userAccessToken = response.data.access_token;
+					//$location.path('/')
 			}, function errorCallback(error) {
-				console.log(error);
+					//$location.path('/login');
 			});
 		};
 

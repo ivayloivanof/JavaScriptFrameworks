@@ -1,3 +1,9 @@
-IssueTrackingSystem.controller('Login', ['$scope', function ($scope) {
-	console.log('This is login controller!');
-}]);
+(function() {
+	IssueTrackingSystem.controller('Login', ['$scope', 'requester', function ($scope, requester) {
+
+		$scope.login = function login() {
+			requester.loginUser($scope.username, $scope.password);
+		};
+
+	}]);
+})();

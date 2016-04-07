@@ -2,7 +2,7 @@ var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngS
 
 IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
-		.when('/home', {
+		.when('/', {
 			templateUrl : 'app/template/home.html',
 			controller : 'Home'
 		})
@@ -18,13 +18,19 @@ IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
 			templateUrl : 'app/template/edit-issue/edit-issue.html',
 			controller : 'EditIssue'
 		})
-		.otherwise({
-			redirectTo: '/home'
-		})
+		// .otherwise({
+		// 	redirectTo: '/home'
+		// })
 }]);
 
 
-IssueTrackingSystem.controller('Home', ['$scope', 'requester', '$sessionStorage', function ($scope, requester, $sessionStorage) {
-	console.log('This is home controller!');
-	console.log($sessionStorage);
+IssueTrackingSystem.controller('Home', ['$scope', 'requester', '$sessionStorage', '$location',
+	function ($scope, requester, $sessionStorage, $location) {
+
+		if(typeof $sessionStorage.userName !== 'undefined' || typeof $sessionStorage.userAccessToken !== 'undefined') {
+			console.log($sessionStorage);
+		} else {
+			$location.path('/login');
+		}
+
 }]);

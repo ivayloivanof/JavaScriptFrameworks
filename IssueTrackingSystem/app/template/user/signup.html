@@ -1,28 +1,32 @@
-<div class="account-container register">
+<div class="account-container register" ng-controller="Main">
     <div class="content clearfix">
         <form action="#" method="post">
             <h1>SignUp for Free Account</h1>
             <div class="login-fields">
                 <p>Create your free account:</p>
                 <div class="field">
-                    <label for="firstname">First Name:</label>
-                    <input type="text" id="firstname" name="firstname" value="" placeholder="First Name" class="login" />
-                </div>
-                <div class="field">
-                    <label for="lastname">Last Name:</label>
-                    <input type="text" id="lastname" name="lastname" value="" placeholder="Last Name" class="login" />
-                </div>
-                <div class="field">
-                    <label for="email">Email Address:</label>
-                    <input type="text" id="email" name="email" value="" placeholder="Email" class="login"/>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" ng-model="registerUser.username" name="username" placeholder="Username" class="login" />
                 </div>
                 <div class="field">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" value="" placeholder="Password" class="login"/>
+                    <input type="password" id="password" ng-model="registerUser.password" name="password" placeholder="Password" class="login" />
                 </div>
                 <div class="field">
-                    <label for="confirm_password">Confirm Password:</label>
-                    <input type="password" id="confirm_password" name="confirm_password" value="" placeholder="Confirm Password" class="login"/>
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="confirmPassword" id="confirmPassword" ng-model="registerUser.confirmPassword" name="Confirm Password" placeholder="Confirm Password" class="login" />
+                </div>
+                <div class="field">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" ng-model="registerUser.name" name="name" placeholder="Name" class="login" />
+                </div>
+                <div class="field">
+                    <label for="email">Email Address:</label>
+                    <input type="text" id="email" ng-model="registerUser.email" name="email" placeholder="Email" class="login"/>
+                </div>
+                <div class="field">
+                    <label for="gender">Gender:</label>
+                    <input type="number" id="gender" ng-model="registerUser.gender" name="gender" placeholder="Gender" class="login"/>
                 </div>
             </div>
             <div class="login-actions">
@@ -30,7 +34,7 @@
 					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
 					<label class="choice" for="Field">Agree with the Terms & Conditions.</label>
 				</span>
-                <button class="button btn btn-primary btn-large">Register</button>
+                <button ng-click="registerUserInSystem(registerUser)" class="button btn btn-primary btn-large">Register</button>
             </div>
         </form>
     </div>

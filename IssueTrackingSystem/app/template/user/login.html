@@ -1,16 +1,16 @@
-<div class="account-container" ng-controller="Login">
+<div class="account-container" ng-controller="Main">
     <div class="content clearfix">
-        <form action="#" method="post" ng-submit="login()">
+        <form action="#" method="post">
             <h1>Login in system</h1>
             <div class="login-fields">
                 <p>Please provide your details</p>
                 <div class="field">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" ng-model="username" placeholder="Username" class="login username-field" />
+                    <input type="text" id="username" name="username" ng-model="loginUser.username" placeholder="Username" class="login username-field" />
                 </div>
                 <div class="field">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" ng-model="password" placeholder="Password" class="login password-field"/>
+                    <input type="password" id="password" name="password" ng-model="loginUser.password" placeholder="Password" class="login password-field"/>
                 </div>
             </div>
             <div class="login-actions">
@@ -18,7 +18,7 @@
 					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
 					<label class="choice" for="Field">Keep me signed in</label>
 				</span>
-                <button class="button btn btn-success btn-large">Sign In</button>
+                <button ng-click="loginUserInSystem(loginUser)" class="button btn btn-success btn-large">Sign In</button>
             </div>
         </form>
     </div>

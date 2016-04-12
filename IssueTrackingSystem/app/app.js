@@ -1,4 +1,6 @@
-var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage']);
+var IssueTrackingSystem = angular
+	.module('IssueTrackingSystem', ['ngRoute', 'ngStorage'])
+	.constant('BASEURL', 'http://softuni-social-network.azurewebsites.net/api/');
 
 IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
@@ -24,13 +26,22 @@ IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-IssueTrackingSystem.controller('Home', ['$scope', 'requester', '$sessionStorage', '$location',
-	function ($scope, requester, $sessionStorage, $location) {
+IssueTrackingSystem.controller('Home', ['$scope', '$sessionStorage', '$location', '$http',
+	function ($scope, $sessionStorage, $location, $http) {
 
-		if(typeof $sessionStorage.userName !== 'undefined' || typeof $sessionStorage.userAccessToken !== 'undefined') {
-			console.log($sessionStorage);
-		} else {
-			$location.path('/login');
-		}
+		// $http({
+		// 	method: 'POST',
+		// 	url: 'http://softuni-social-network.azurewebsites.net/api/users/login',
+		// 	data: "username=" + "n1p3ha" + "&password=" + "666666",
+		// 	headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		// }).then(function success(response) {
+		// 	console.log(response);
+		// 	console.log($sessionStorage);
+		// 	$sessionStorage.userName = response.data.userName;
+		// 	$sessionStorage.userAccessToken = response.data.access_token;
+		// }, function error(error) {
+		// 	console.log(error);
+		// 	console.log($sessionStorage);
+		// });
 
 }]);

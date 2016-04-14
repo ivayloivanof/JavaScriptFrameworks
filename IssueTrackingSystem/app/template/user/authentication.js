@@ -1,5 +1,6 @@
 (function() {
-	IssueTrackingSystem.factory('authentication', ['$http', '$q', 'BASE_URL', function ($http, $q, BASE_URL) {
+	IssueTrackingSystem.factory('authentication', ['$http', '$q', 'BASE_URL', '$sessionStorage',
+		function ($http, $q, BASE_URL, $sessionStorage) {
 
 		function registerUser(user) {
 			var deferred = $q.defer();
@@ -28,7 +29,10 @@
 		}
 
 		function logout() {
-
+			delete $sessionStorage.access_token;
+			delete $sessionStorage.token_type;
+			delete $sessionStorage.user;
+			$sessionStorage.isAuthenticated = false;
 		}
 
 		return {

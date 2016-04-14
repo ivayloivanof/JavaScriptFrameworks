@@ -16,17 +16,16 @@
 				$scope.registerUserInSystem = function (user) {
 					authentication.registerUser(user)
 						.then(function (registeredUser) {
-							console.log(registeredUser);
+							$sessionStorage.isAuthenticated = true;
+							$sessionStorage.access_token = registeredUser.access_token;
+							$sessionStorage.token_type = registeredUser.token_type;
+							$sessionStorage.user = registeredUser.userName;
+							$location.path('/');
 						})
-						
-					
 				};
 
 				$scope.logoutUser = function () {
-					delete $sessionStorage.access_token;
-					delete $sessionStorage.token_type;
-					delete $sessionStorage.user;
-					$sessionStorage.isAuthenticated = false;
+					authentication.logout();
 					$location.path('/login');
 				}
 

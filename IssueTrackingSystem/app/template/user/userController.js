@@ -20,6 +20,14 @@
 						})
 						
 					
+				};
+
+				$scope.logoutUser = function () {
+					delete $sessionStorage.access_token;
+					delete $sessionStorage.token_type;
+					delete $sessionStorage.user;
+					$sessionStorage.isAuthenticated = false;
+					$location.path('/login');
 				}
 
 	}]);

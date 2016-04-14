@@ -1,5 +1,6 @@
 (function() {
-	IssueTrackingSystem.factory('authentication', ['$http', '$q', 'BASE_URL', '$sessionStorage',
+	IssueTrackingSystem.factory('authentication',
+		['$http', '$q', 'BASE_URL', '$sessionStorage',
 		function ($http, $q, BASE_URL, $sessionStorage) {
 
 		function registerUser(user) {

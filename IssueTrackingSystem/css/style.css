@@ -1,13 +1,3 @@
-/*------------------------------------------------------------------
-Bootstrap Admin Template by EGrappler.com
-------------------------------------------------------------------*/
-
-
-
-/*------------------------------------------------------------------
-[1. Global]
-*/
-
 body {
 	background: #f9f6f1;
 	font: 13px/1.7em 'Open Sans';
@@ -431,6 +421,21 @@ textarea {
 .widget-nopad .widget-content {
 	padding: 0;
 }
+
+/*Success Message*/
+.success_msg {
+	width: 90%;
+    padding: 5px;
+    background-color: #62b74a;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 30px;
+    color: #535353;
+}
+
 
 /* Widget Content Clearfix */	
 .widget-content:before,

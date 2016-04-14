@@ -12,10 +12,10 @@ IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
 			templateUrl : 'app/template/user/login.html',
 			controller : 'User'
 		})
-		// .when('/signup', {
-		// 	templateUrl : 'app/template/user/signup.html',
-		// 	controller : 'User'
-		// })
+		.when('/signup', {
+			templateUrl : 'app/template/user/signup.html',
+			controller : 'User'
+		})
 		// .when('/edit-issue', {
 		// 	templateUrl : 'app/template/edit-issue/edit-issue.html',
 		// 	controller : 'EditIssue'

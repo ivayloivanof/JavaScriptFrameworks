@@ -38,6 +38,7 @@ IssueTrackingSystem.controller('Main', ['$scope', 'authentication', '$sessionSto
 		} else {
 			$sessionStorage.isAuthenticated = true;
 			$scope.isAuthenticated = $sessionStorage.isAuthenticated;
+			$scope.user = $sessionStorage.user;
 		}
 		
 		

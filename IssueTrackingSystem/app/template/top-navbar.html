@@ -9,11 +9,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-user"></i>Account<b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" ng-controller="User">
                             <li><a href="javascript:;">Settings</a></li>
                             <li><a href="javascript:;">Help</a></li>
                             <li><a href="javascript:;">Profile</a></li>
-                            <li><a href="javascript:;">Logout</a></li>
+                            <li><a href="" ng-click="logoutUser()">Logout</a></li>
                         </ul>
                     </li>
                 </ul>

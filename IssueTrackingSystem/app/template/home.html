@@ -1,4 +1,20 @@
 <div class="row" ng-if="isAuthenticated">
+
+    <div class="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Warning!</strong> Error.
+    </div>
+
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Welcome! </strong>- {{user}}
+    </div>
+
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+    </div>
+
     <div class="span6">
         <div ng-include="'app/template/stats.html'"></div>
         <div ng-include="'app/template/issue.html'"></div>

@@ -2,12 +2,16 @@
 var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage']).constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');
 
 IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/', {
-        templateUrl: 'app/template/home.html',
-        controller: 'Main'
-    }).otherwise({
-        redirectTo: '/'
-    });
+    $routeProvider
+        .when('/', {
+            templateUrl: 'app/template/home.html',
+            controller: 'Main'
+        }).when('/project', {
+            templateUrl: 'app/template/project/project-add.html',
+            controller: 'Main'
+        }).otherwise({
+            redirectTo: '/'
+        });
 }]);
 
 

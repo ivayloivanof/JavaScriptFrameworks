@@ -5,7 +5,7 @@
         function registerUser(user) {
             var deferred = $q.defer();
 
-            $http.post(BASE_URL + 'Users/Register', user)
+            $http.post(BASE_URL + 'Account/Register', user)
                 .then(function (response) {
                     deferred.resolve(response.data);
                 }, function (error) {
@@ -18,7 +18,7 @@
         function loginUser(user) {
             var deferred = $q.defer();
 
-            $http.post(BASE_URL + 'Users/Login', user)
+            $http.post(BASE_URL + 'Account/Login', user)
                 .then(function (response) {
                     deferred.resolve(response.data);
                 }, function (error) {

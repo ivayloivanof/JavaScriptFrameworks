@@ -1,5 +1,5 @@
 "use strict";
-var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage']).constant('BASE_URL', 'http://softuni-social-network.azurewebsites.net/api/');
+var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage']).constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net');
 
 IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
@@ -11,6 +11,9 @@ IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
     }).when('/signup', {
         templateUrl: 'app/template/user/signup.html',
         controller: 'User'
+    }).when('/add-project', {
+        templateUrl: 'app/template/project/project-add.html',
+        controller: 'Project'
     }).otherwise({
         redirectTo: '/'
     });
@@ -31,6 +34,7 @@ IssueTrackingSystem.controller('Main', ['$scope', 'authentication', '$sessionSto
         $scope.isAuthenticated = $sessionStorage.isAuthenticated;
         $scope.user = $sessionStorage.user;
     }
-
+    
+    console.log($sessionStorage);
 
 }]);

@@ -1,3 +1,8 @@
+<div class="row" ng-if="!isAuthenticated">
+    <div class="span5" ng-include="'app/template/user/login.html'"></div>
+    <div class="span5" ng-include="'app/template/user/signup.html'"></div>
+</div>
+
 <div class="row" ng-if="isAuthenticated">
 
     <!--TODO not complete messages for system success or error-->

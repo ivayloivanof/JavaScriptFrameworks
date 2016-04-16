@@ -1,35 +1,35 @@
-<div class="container" ng-controller="Project">
-    <div class="span6">
-        <h2>Add new Project</h2>
+<div class="account-container" ng-controller="Project">
+    <div class="content clearfix">
+        <h2>Create Project</h2>
         <form method="post">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" ng-model="projectData.name" class="form-control" id="name" placeholder="Project Name">
+                <input type="text" ng-model="projectData.name" class="span3 form-control" id="name" placeholder="Project Name">
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" ng-model="projectData.description" id="description" placeholder="Description"></textarea>
+                <textarea class="span3 form-control" ng-model="projectData.description" id="description" placeholder="Description"></textarea>
             </div>
             <div class="form-group">
                 <label for="projectKey">Project Key</label>
-                <input type="text" ng-model="projectData.key" class="form-control" id="projectKey" placeholder="Project Key">
+                <input type="text" ng-model="projectData.key" class="span3 form-control" id="projectKey" placeholder="Project Key">
             </div>
             <div class="form-group">
                 <label for="leader">Leader</label>
-                <select class="form-control" ng-model="projectData.leader" id="leader">
+                <select ng-model="projectData.leader" id="leader" class="span3 form-control">
                     <option ng-repeat="user in allUsers" value="{{user.Id}}">{{user.Username}}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="priorities">Priorities (comma separated)</label>
-                <input type="text" ng-model="projectData.priorities" class="form-control" id="priorities" placeholder="Available Priorities For The Issues" value="Low, Medium, Urgent">
+                <input type="text" ng-model="projectData.priorities" class="span3 form-control" id="priorities" placeholder="Available Priorities For The Issues" value="Low, Medium, Urgent">
             </div>
             <div class="form-group">
                 <label for="labels">Labels (comma separated)</label>
-                <input type="text" ng-model="projectData.labels" class="form-control" id="labels" placeholder="Labels" value="Soft">
+                <input type="text" ng-model="projectData.labels" class="span3 form-control" id="labels" placeholder="Labels" value="Soft">
                 <br>
             </div>
-            <button ng-click="addProject(projectData)" class="btn btn-success">Add Project</button>
+            <button ng-click="addProject(projectData)" class="btn btn-success">Create Project</button>
         </form>
     </div>
 </div>

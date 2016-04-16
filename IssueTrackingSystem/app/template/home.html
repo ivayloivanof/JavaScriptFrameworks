@@ -1,5 +1,5 @@
 <div class="row" ng-if="!isAuthenticated">
-    <div class="alert alert-{{notification.type}}" style="display: none;" role="alert" data-notification-error="{{notification.status}}">{{notification.message}}</div>
+    <div class="span11 alert alert-{{notification.type}}" style="display: none;" role="alert" data-notification-error="{{notification.status}}">{{notification.message}}</div>
 
     <div class="span5" ng-include="'app/template/user/login.html'"></div>
     <div class="span5" ng-include="'app/template/user/signup.html'"></div>
@@ -7,7 +7,7 @@
 
 
 <div class="row" ng-if="isAuthenticated">
-    <div class="alert alert-{{notification.type}}" style="display: none;" role="alert" data-notification-success="{{notification.status}}">{{notification.message}}</div>
+    <div class="span11 alert alert-{{notification.type}}" style="display: none;" role="alert" data-notification-success="{{notification.status}}">{{notification.message}}</div>
 
     <div class="span12">
         <div ng-include="'app/template/project/project-all.html'"></div>

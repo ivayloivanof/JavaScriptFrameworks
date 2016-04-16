@@ -7,15 +7,18 @@
                 <input type="text" ng-model="projectData.name" class="form-control" id="name" placeholder="Project Name">
             </div>
             <div class="form-group">
-                <label for="leader">Leader</label>
-                <select class="form-control" ng-model="projectData.leader" id="leader">
-                    <option>Pesho</option>
-                    <option>Gosho</option>
-                </select>
+                <label for="description">Description</label>
+                <textarea class="form-control" ng-model="projectData.description" id="description" placeholder="Description"></textarea>
             </div>
             <div class="form-group">
                 <label for="projectKey">Project Key</label>
                 <input type="text" ng-model="projectData.key" class="form-control" id="projectKey" placeholder="Project Key">
+            </div>
+            <div class="form-group">
+                <label for="leader">Leader</label>
+                <select class="form-control" ng-model="projectData.leader" id="leader">
+                    <option ng-repeat="user in allUsers" value="{{user.Id}}">{{user.Username}}</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="priorities">Priorities (comma separated)</label>
@@ -25,10 +28,6 @@
                 <label for="labels">Labels (comma separated)</label>
                 <input type="text" ng-model="projectData.labels" class="form-control" id="labels" placeholder="Labels" value="Soft">
                 <br>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" ng-model="projectData.description" id="description" placeholder="Description"></textarea>
             </div>
             <button ng-click="addProject(projectData)" class="btn btn-success">Add Project</button>
         </form>

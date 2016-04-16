@@ -5,14 +5,15 @@
         $scope.getAllUsers = function () {
             users.getAllUsers()
                 .then(function (users) {
-                    console.log(users);
+                    $scope.allUsers = users.data;
                 });
         };
 
-        $scope.getAllUsers();
         $scope.addProject = function (project) {
             console.log(project);
             //TODO upload project
         };
+
+        $scope.getAllUsers();
     }]);
 }());

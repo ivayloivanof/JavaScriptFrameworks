@@ -6,7 +6,8 @@ IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
         .when('/', {
             templateUrl: 'app/template/home.html',
             controller: 'Main'
-        }).when('/project', {
+        }).when('/projects/add', {
+            //TODO check for administrator
             templateUrl: 'app/template/project/project-add.html',
             controller: 'Main'
         }).otherwise({

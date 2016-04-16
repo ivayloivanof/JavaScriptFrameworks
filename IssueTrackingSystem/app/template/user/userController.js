@@ -1,7 +1,7 @@
 (function () {
     "use strict";
-    IssueTrackingSystem.controller('User', ['$scope', '$location', 'authentication', 'users', '$sessionStorage',
-        function ($scope, $location, authentication, users, $sessionStorage) {
+    IssueTrackingSystem.controller('User', ['$scope', '$location', 'authentication', '$sessionStorage',
+        function ($scope, $location, authentication, $sessionStorage) {
 
             $scope.loginUserInSystem = function (user) {
                 authentication.loginUser(user)
@@ -25,18 +25,9 @@
                     });
             };
 
-            $scope.getAllUsers = function () {
-                users.getAllUsers()
-                    .then(function (users) {
-                        console.log(users);
-                    });
-            };
-
             $scope.logoutUser = function () {
                 authentication.logout();
                 $location.path('/logout');
             };
-
-            $scope.getAllUsers();
         }]);
 }());

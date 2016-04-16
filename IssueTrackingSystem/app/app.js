@@ -29,5 +29,5 @@ IssueTrackingSystem.controller('Main', ['$scope', '$sessionStorage',
             $scope.isAuthenticated = $sessionStorage.isAuthenticated;
         }
 
-        console.log($sessionStorage);
+        console.log($sessionStorage);   //TODO remove log session
 }]);

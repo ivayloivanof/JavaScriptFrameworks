@@ -1,5 +1,6 @@
 <div class="widget widget-table action-table" ng-controller="Project">
-    <div class="widget-header"><i class="icon-th-list"></i>
+    <div class="widget-header">
+        <i class="icon-th-list"></i>
         <h3>All Projects</h3>
     </div>
     <div class="widget-content">
@@ -7,43 +8,23 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>Issue</th>
-                <th>Project</th>
-                <th>Due Date</th>
+                <th>Project Name</th>
+                <th>Project Description</th>
+                <th>Project Leader</th>
                 <th class="td-actions"></th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Bad Request has no message describing the problem</td>
-                <td>SIT</td>
-                <td>28/03/2016</td>
-                <td class="td-actions">
-                    <a href="javascript:;" class="btn btn-small btn-success" title="View"><i class="btn-icon-only icon-sitemap"></i></a>
-                    <a href="javascript:;" class="btn-icon-only icon-trash" title="Delete"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Adding new product doesn't list correct price</td>
-                <td>Cart Management</td>
-                <td>30/03/2016</td>
-                <td class="td-actions">
-                    <a href="javascript:;" class="btn btn-small btn-success" title="View"><i class="btn-icon-only icon-sitemap"> </i></a>
-                    <a href="javascript:;" class="btn-icon-only icon-trash" title="Delete"></i></a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>English version broken</td>
-                <td>Nasdaq informational site</td>
-                <td>02/04/2016</td>
-                <td class="td-actions">
-                    <a href="javascript:;" class="btn btn-small btn-success" title="View"><i class="btn-icon-only icon-sitemap"> </i></a>
-                    <a href="javascript:;" class="btn-icon-only icon-trash" title="Delete"></i></a>
-                </td>
-            </tr>
+            <tbody ng-repeat="project in projects">
+                <tr>
+                    <th scope="row">{{project.Id}}</th>
+                    <td>{{project.Name}}</td>
+                    <td>{{project.Description | limitTo:15}}</td>
+                    <td>{{project.Lead.Username}}</td>
+                    <td class="td-actions">
+                        <a href="javascript:;" class="btn btn-small btn-success" title="View"><i class="btn-icon-only icon-sitemap"></i></a>
+                        <a href="javascript:;" class="btn-icon-only icon-trash" title="Delete"></i></a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

@@ -1,25 +1,13 @@
 <div class="row" ng-if="!isAuthenticated">
+    <div class="alert alert-{{notification.type}}" style="display: none;" role="alert" data-notification-error="{{notification.status}}">{{notification.message}}</div>
+
     <div class="span5" ng-include="'app/template/user/login.html'"></div>
     <div class="span5" ng-include="'app/template/user/signup.html'"></div>
 </div>
 
+
 <div class="row" ng-if="isAuthenticated">
-
-    <!--TODO not complete messages for system success or error-->
-    <!--<div class="alert">-->
-        <!--<button type="button" class="close" data-dismiss="alert">&times;</button>-->
-        <!--<strong>Warning!</strong> Error.-->
-    <!--</div>-->
-
-    <!--<div class="alert alert-success">-->
-        <!--<button type="button" class="close" data-dismiss="alert">&times;</button>-->
-        <!--<strong>Welcome! </strong>- {{user}}-->
-    <!--</div>-->
-
-    <!--<div class="alert alert-info">-->
-        <!--<button type="button" class="close" data-dismiss="alert">&times;</button>-->
-        <!--<strong>Warning!</strong> Best check yo self, you're not looking too good.-->
-    <!--</div>-->
+    <div class="alert alert-{{notification.type}}" style="display: none;" role="alert" data-notification-success="{{notification.status}}">{{notification.message}}</div>
 
     <div class="span12">
         <div ng-include="'app/template/project/project-all.html'"></div>

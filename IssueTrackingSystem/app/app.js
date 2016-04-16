@@ -1,40 +1,29 @@
 "use strict";
-var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage']).constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net');
+var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage']).constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');
 
 IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'app/template/home.html',
         controller: 'Main'
-    }).when('/login', {
-        templateUrl: 'app/template/user/login.html',
-        controller: 'User'
-    }).when('/signup', {
-        templateUrl: 'app/template/user/signup.html',
-        controller: 'User'
-    }).when('/add-project', {
-        templateUrl: 'app/template/project/project-add.html',
-        controller: 'Project'
     }).otherwise({
         redirectTo: '/'
     });
 }]);
 
 
-IssueTrackingSystem.controller('Main', ['$scope', 'authentication', '$sessionStorage', '$location', function ($scope, authentication, $sessionStorage, $location) {
+IssueTrackingSystem.controller('Main', ['$scope', '$sessionStorage',
+    function ($scope, $sessionStorage) {
     //if not authenticated
-    if (!$sessionStorage.user || !$sessionStorage.isAuthenticated) {
-        delete $sessionStorage.access_token;
-        delete $sessionStorage.token_type;
-        delete $sessionStorage.user;
-        $sessionStorage.isAuthenticated = false;
-        $scope.isAuthenticated = $sessionStorage.isAuthenticated;
-        $location.path('/login');
-    } else {
-        $sessionStorage.isAuthenticated = true;
-        $scope.isAuthenticated = $sessionStorage.isAuthenticated;
-        $scope.user = $sessionStorage.user;
-    }
-    
-    console.log($sessionStorage);
+        if (!$sessionStorage.username || !$sessionStorage.isAuthenticated) {
+            delete $sessionStorage.access_token;
+            delete $sessionStorage.token_type;
+            delete $sessionStorage.username;
+            $sessionStorage.isAuthenticated = false;
+            $scope.isAuthenticated = $sessionStorage.isAuthenticated;
+        } else {
+            $sessionStorage.isAuthenticated = true;
+            $scope.isAuthenticated = $sessionStorage.isAuthenticated;
+        }
 
+        console.log($sessionStorage);
 }]);

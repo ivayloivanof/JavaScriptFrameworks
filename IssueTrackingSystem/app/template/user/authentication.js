@@ -20,6 +20,7 @@
                 });
                 return deferred.promise;
             }
+
             function loginUser(user) {
                 var deferred = $q.defer();
                 user.grant_type = 'password';
@@ -38,12 +39,14 @@
                 });
                 return deferred.promise;
             }
+
             function logout() {
                 delete $sessionStorage.access_token;
                 delete $sessionStorage.token_type;
                 delete $sessionStorage.username;
                 $sessionStorage.isAuthenticated = false;
             }
+            
             return {
                 registerUser: registerUser,
                 loginUser: loginUser,

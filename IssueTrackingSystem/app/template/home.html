@@ -9,8 +9,11 @@
 <div class="row" ng-if="isAuthenticated">
     <div class="span11 alert alert-{{notification.type}}" style="display: none;" role="alert" data-notification-success="{{notification.status}}">{{notification.message}}</div>
 
-    <div class="span8">
-        <div ng-include="'app/template/project/project-all.html'"></div>
+    <!--<div class="span8">-->
+        <!--<div ng-include="'app/template/project/project-all.html'"></div>-->
+    <!--</div>-->
+    <div class="span6">
+        <div ng-include="'app/template/issue/issue-all.html'"></div>
     </div>
 
     <div class="span6">

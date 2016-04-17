@@ -1,5 +1,5 @@
 "use strict";
-var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage']).constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');
+var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage', 'angular-loading-bar']).constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');
 
 IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
     $routeProvider

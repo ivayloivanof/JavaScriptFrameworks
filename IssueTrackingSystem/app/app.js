@@ -9,7 +9,7 @@ IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
         }).when('/projects/add', {
             //TODO check for administrator
             templateUrl: 'app/template/project/project-add.html',
-            controller: 'Main'
+            controller: 'Project'
         }).otherwise({
             redirectTo: '/'
         });

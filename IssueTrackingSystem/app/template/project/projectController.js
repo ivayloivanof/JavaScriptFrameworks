@@ -9,7 +9,7 @@
                 });
         };
 
-        $scope.addProject = function (project) {
+        $scope.addProject = function (project, admin) {
             console.log(project);
             //TODO upload project
         };

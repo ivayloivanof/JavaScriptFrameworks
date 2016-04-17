@@ -1,0 +1,28 @@
+<div class="widget widget-table action-table" ng-controller="Issue">
+    <div class="widget-header">
+        <i class="icon-th-list"></i>
+        <h3>All Projects</h3>
+    </div>
+    <div class="widget-content">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Issue Key</th>
+                <th>Issue Description</th>
+                <th>Project</th>
+                <th>Due Date</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="issue in issues">
+                <tr>
+                    <th scope="row">{{issue.Id}}</th>
+                    <td>{{issue.IssueKey}}</td>
+                    <td>{{issue.Description | limitTo:15}}</td>
+                    <td>{{issue.Project.Name}}</td>
+                    <td>{{issue.DueDate}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

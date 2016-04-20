@@ -1,6 +1,6 @@
-(function () {
-    "use strict";
-    IssueTrackingSystem.controller('Project', ['$scope', 'projects', 'users', function ($scope, projects, users) {
+"use strict";
+angular.module('IssueTrackingSystem.controllers.project', [])
+    .controller('Project', ['$scope', 'projects', 'users', function ($scope, projects, users) {
 
         $scope.getAllUsers = function () {
             users.getAllUsers()
@@ -24,4 +24,3 @@
         $scope.getAllUsers();
         $scope.getAllProjects();
     }]);
-}());

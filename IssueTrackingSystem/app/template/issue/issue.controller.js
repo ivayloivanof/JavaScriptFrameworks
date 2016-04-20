@@ -1,5 +1,7 @@
-(function () {
-    IssueTrackingSystem.controller('Issue', ['$scope', 'issues', function ($scope, issues) {
+'use strict';
+
+angular.module('IssueTrackingSystem.controllers.issue', [])
+    .controller('Issue', ['$scope', 'issues', function ($scope, issues) {
 
         $scope.getAllIssues = function () {
             issues.getAllIssues()
@@ -11,4 +13,3 @@
 
         $scope.getAllIssues();
     }]);
-}());

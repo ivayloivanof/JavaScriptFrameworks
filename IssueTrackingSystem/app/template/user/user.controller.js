@@ -1,6 +1,7 @@
-(function () {
-    "use strict";
-    IssueTrackingSystem.controller('User', ['$scope', '$location', 'authentication', '$sessionStorage',
+"use strict";
+
+angular.module('IssueTrackingSystem.controllers.user', [])
+    .controller('User', ['$scope', '$location', 'authentication', '$sessionStorage',
         function ($scope, $location, authentication, $sessionStorage) {
 
             $scope.loginUserInSystem = function (user) {
@@ -30,4 +31,3 @@
                 $location.path('/logout');
             };
         }]);
-}());

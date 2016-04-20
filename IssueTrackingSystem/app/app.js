@@ -1,34 +1,19 @@
-"use strict";
-var IssueTrackingSystem = angular.module('IssueTrackingSystem', ['ngRoute', 'ngStorage', 'angular-loading-bar']).constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');
+'use strict';
 
-IssueTrackingSystem.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider
-        .when('/', {
-            templateUrl: 'app/template/home.html',
-            controller: 'Main'
-        }).when('/projects/add', {
-            //TODO check for administrator
-            templateUrl: 'app/template/project/project-add.html',
-            controller: 'Project'
-        }).otherwise({
+angular.module('IssueTrackingSystem', [
+    'ngRoute', 'ngStorage', 'angular-loading-bar',
+    'IssueTrackingSystem.controllers.main',
+    'IssueTrackingSystem.controllers.project',
+    'IssueTrackingSystem.controllers.user',
+    'IssueTrackingSystem.controllers.issue',
+    'IssueTrackingSystem.services.projects',
+    'IssueTrackingSystem.services.authentication',
+    'IssueTrackingSystem.services.issues',
+    'IssueTrackingSystem.services.users',
+    'IssueTrackingSystem.directives.notification'])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.otherwise({
             redirectTo: '/'
         });
-}]);
-
-
-IssueTrackingSystem.controller('Main', ['$scope', '$sessionStorage',
-    function ($scope, $sessionStorage) {
-    //if not authenticated
-        if (!$sessionStorage.username || !$sessionStorage.isAuthenticated) {
-            delete $sessionStorage.access_token;
-            delete $sessionStorage.token_type;
-            delete $sessionStorage.username;
-            $sessionStorage.isAuthenticated = false;
-            $scope.isAuthenticated = $sessionStorage.isAuthenticated;
-        } else {
-            $sessionStorage.isAuthenticated = true;
-            $scope.isAuthenticated = $sessionStorage.isAuthenticated;
-        }
-
-        console.log($sessionStorage);   //TODO remove log session
-}]);
+    }])
+    .constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/');

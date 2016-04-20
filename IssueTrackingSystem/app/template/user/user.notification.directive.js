@@ -1,6 +1,7 @@
-(function() {
-    'use strict';
-    IssueTrackingSystem.directive('notificationSuccess', ['$timeout', '$sessionStorage', function ($timeout, $sessionStorage) {
+'use strict';
+
+angular.module('IssueTrackingSystem.directives.notification', [])
+    .directive('notificationSuccess', ['$timeout', '$sessionStorage', function ($timeout, $sessionStorage) {
         return {
             restrict: 'A',
             controller: ['$scope', function ($scope) {
@@ -22,9 +23,8 @@
                 });
             }
         };
-    }]);
-
-    IssueTrackingSystem.directive('notificationError', ['$timeout', function ($timeout) {
+    }])
+    .directive('notificationError', ['$timeout', function ($timeout) {
         return {
             restrict: 'A',
             controller: ['$scope', function ($scope) {
@@ -47,4 +47,3 @@
             }
         };
     }]);
-}());

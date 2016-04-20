@@ -1,6 +1,7 @@
-(function () {
-    "use strict";
-    IssueTrackingSystem.factory('authentication', ['$http', '$q', 'BASE_URL', '$sessionStorage',
+"use strict";
+
+angular.module('IssueTrackingSystem.services.authentication', [])
+    .factory('authentication', ['$http', '$q', 'BASE_URL', '$sessionStorage',
         function ($http, $q, BASE_URL, $sessionStorage) {
 
             function registerUser(user) {
@@ -46,12 +47,10 @@
                 delete $sessionStorage.username;
                 $sessionStorage.isAuthenticated = false;
             }
-            
+
             return {
                 registerUser: registerUser,
                 loginUser: loginUser,
                 logout: logout
             };
-        }]);
-}());
-
+    }]);

@@ -1,14 +1,15 @@
-(function () {
-    'use strict';
-    IssueTrackingSystem.factory('users', ['$http', '$q', 'BASE_URL', '$sessionStorage',
+"use strict";
+
+angular.module('IssueTrackingSystem.services.issues', [])
+    .factory('issues', ['$http', '$q', 'BASE_URL', '$sessionStorage',
         function ($http, $q, BASE_URL, $sessionStorage) {
 
-            function getAllUsers() {
+            function getAllIssues() {
                 var deferred = $q.defer();
 
                 $http({
                     method: 'get',
-                    url: BASE_URL + 'users',
+                    url: BASE_URL + 'issues/?filter=Status.Name == "In Progress" or DueDate.Day <= 31&pageSize=1000&pageNumber=1',
                     headers: {
                         'Authorization': $sessionStorage.token_type + ' ' + $sessionStorage.access_token
                     }
@@ -22,7 +23,7 @@
             }
 
             return {
-                getAllUsers : getAllUsers
+                getAllIssues : getAllIssues
             };
+
         }]);
-}());

@@ -1,14 +1,15 @@
-(function () {
-    'use strict';
-    IssueTrackingSystem.factory('projects', ['$http', '$q', 'BASE_URL', '$sessionStorage',
+'use strict';
+
+angular.module('IssueTrackingSystem.services.users', [])
+    .factory('users', ['$http', '$q', 'BASE_URL', '$sessionStorage',
         function ($http, $q, BASE_URL, $sessionStorage) {
 
-            function getAllProjects() {
+            function getAllUsers() {
                 var deferred = $q.defer();
 
                 $http({
                     method: 'get',
-                    url: BASE_URL + 'projects',
+                    url: BASE_URL + 'users',
                     headers: {
                         'Authorization': $sessionStorage.token_type + ' ' + $sessionStorage.access_token
                     }
@@ -22,7 +23,6 @@
             }
 
             return {
-                getAllProjects : getAllProjects
+                getAllUsers : getAllUsers
             };
         }]);
-}());

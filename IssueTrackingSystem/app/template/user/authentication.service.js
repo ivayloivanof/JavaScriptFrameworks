@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('IssueTrackingSystem.services.authentication', [])
-    .factory('authentication', ['$http', '$q', 'BASE_URL', '$sessionStorage',
-        function ($http, $q, BASE_URL, $sessionStorage) {
+    .factory('authentication', ['$http', '$q', 'BASE_URL', '$sessionStorage', 'header',
+        function ($http, $q, BASE_URL, $sessionStorage, header) {
 
             function registerUser(user) {
                 var deferred = $q.defer();
@@ -11,9 +11,7 @@ angular.module('IssueTrackingSystem.services.authentication', [])
                     method: 'post',
                     url: BASE_URL + 'api/Account/Register',
                     data: serialUser,
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
+                    headers: header.getWWWContent()
                 }).then(function (success) {
                     deferred.resolve(success);
                 }).then(function (error) {
@@ -30,9 +28,7 @@ angular.module('IssueTrackingSystem.services.authentication', [])
                     method: 'post',
                     url: BASE_URL + 'api/Token',
                     data: serializedUser,
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
+                    headers: header.getWWWContent()
                 }).then(function (success) {
                     deferred.resolve(success);
                 }).then(function (error) {

@@ -9,7 +9,21 @@ angular.module('IssueTrackingSystem.services.header', [])
                 };
             }
 
+            function getWWWContent() {
+                return {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                };
+            }
+
+            function getJSONContent() {
+                return {
+                    'Content-Type': 'application/json'
+                };
+            }
+
             return {
-                authenticationHeader : authenticationHeader
+                authenticationHeader : authenticationHeader,
+                getWWWContent : getWWWContent,
+                getJSONContent : getJSONContent
             };
         }]);

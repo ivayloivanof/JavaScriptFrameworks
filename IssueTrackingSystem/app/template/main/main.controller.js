@@ -20,6 +20,4 @@ angular.module('IssueTrackingSystem.controllers.main', [])
                 $sessionStorage.isAuthenticated = true;
                 $scope.isAuthenticated = $sessionStorage.isAuthenticated;
             }
-
-            console.log($sessionStorage);   //TODO remove log session
         }]);

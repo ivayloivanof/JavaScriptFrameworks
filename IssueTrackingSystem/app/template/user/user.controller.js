@@ -11,8 +11,17 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                         $sessionStorage.access_token = loggedUser.data.access_token;
                         $sessionStorage.token_type = loggedUser.data.token_type;
                         $sessionStorage.username = loggedUser.data.userName;
-                        //if debug mode
-                        debug ? console.log(loggedUser.data) : '';
+
+                        users.getCurrentUser()
+                            .then(function (currentUser) {
+                                $sessionStorage.isAdmin = currentUser.data.isAdmin;
+                                //if debug mode is activated
+                                debug ? console.log('Current user:', currentUser) : '';
+                            }, function (error) {
+                                console.error(error);
+                            });
+                        //if debug mode is activated
+                        debug ? console.log('Logged user:', loggedUser) : '';
                         $location.path('/login');
                     }, function (error) {
                         console.error(error);
@@ -22,6 +31,8 @@ angular.module('IssueTrackingSystem.controllers.user', [])
             $scope.registerUserInSystem = function (user) {
                 authentication.registerUser(user)
                     .then(function (registeredUser) {
+                        //if debug mode is activated
+                        debug ? console.log(registeredUser) : '';
                         $scope.loginUserInSystem(registeredUser);
                     }, function (error) {
                         console.error(error);

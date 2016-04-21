@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('IssueTrackingSystem.controllers.user', [])
-    .controller('User', ['$scope', '$location', 'authentication', '$sessionStorage',
-        function ($scope, $location, authentication, $sessionStorage) {
+    .controller('User', ['$scope', 'debug', '$location', 'authentication', '$sessionStorage', 'users',
+        function user($scope, debug, $location, authentication, $sessionStorage, users) {
 
             $scope.loginUserInSystem = function (user) {
                 authentication.loginUser(user)
@@ -11,6 +11,8 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                         $sessionStorage.access_token = loggedUser.data.access_token;
                         $sessionStorage.token_type = loggedUser.data.token_type;
                         $sessionStorage.username = loggedUser.data.userName;
+                        //if debug mode
+                        debug ? console.log(loggedUser.data) : '';
                         $location.path('/login');
                     }, function (error) {
                         console.error(error);

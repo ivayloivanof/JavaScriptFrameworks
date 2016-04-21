@@ -12,17 +12,17 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                         $sessionStorage.token_type = loggedUser.data.token_type;
                         $sessionStorage.username = loggedUser.data.userName;
                         $location.path('/login');
+                    }, function (error) {
+                        console.error(error);
                     });
             };
 
             $scope.registerUserInSystem = function (user) {
                 authentication.registerUser(user)
                     .then(function (registeredUser) {
-                        $sessionStorage.isAuthenticated = true;
-                        $sessionStorage.access_token = registeredUser.data.access_token;
-                        $sessionStorage.token_type = registeredUser.data.token_type;
-                        $sessionStorage.username = registeredUser.data.userName;
-                        $location.path('/register');
+                        $scope.loginUserInSystem(registeredUser);
+                    }, function (error) {
+                        console.error(error);
                     });
             };
 

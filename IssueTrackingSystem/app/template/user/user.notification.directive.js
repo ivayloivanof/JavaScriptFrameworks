@@ -11,12 +11,12 @@ angular.module('IssueTrackingSystem.directives.notification', [])
                     message: 'Welcome! ' + $sessionStorage.username
                 };
             }],
-            link: function succesLogin(scope, elem, attrs) {
+            link: function succesLogin(scope, element, attrs) {
                 attrs.$observe('notificationSuccess', function () {
                     if ($sessionStorage.isAuthenticated === true) {
-                        $(elem).show();
+                        $(element).show();
                         $timeout(function () {
-                            $(elem).hide();
+                            $(element).hide();
                             scope.notification.status = 'hide';
                         }, 4000);
                     }

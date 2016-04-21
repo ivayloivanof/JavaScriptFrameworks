@@ -11,37 +11,37 @@ angular.module('IssueTrackingSystem.directives.notification', [])
                     message: 'Welcome! ' + $sessionStorage.username
                 };
             }],
-            link: function (scope, elem, attrs) {
+            link: function succesLogin(scope, elem, attrs) {
                 attrs.$observe('notificationSuccess', function () {
                     if ($sessionStorage.isAuthenticated === true) {
                         $(elem).show();
                         $timeout(function () {
                             $(elem).hide();
                             scope.notification.status = 'hide';
-                        }, 5000);
+                        }, 4000);
                     }
                 });
             }
         };
     }])
-    .directive('notificationError', ['$timeout', function ($timeout) {
+    .directive('notificationError', ['$timeout', '$sessionStorage', function ($timeout, $sessionStorage) {
         return {
             restrict: 'A',
             controller: ['$scope', function ($scope) {
                 $scope.notification = {
                     status: 'hide',
                     type: 'error',
-                    message: 'Error! '
+                    message: 'Error! User is not login!'
                 };
             }],
-            link: function (scope, elem, attrs) {
-                attrs.$observe('notificationSuccess', function () {
-                    if (true) {
-                        $(elem).show();
+            link: function notLogin(scope, element, attrs) {
+                attrs.$observe('notificationError', function () {
+                    if ($sessionStorage.isAuthenticated === false) {
+                        $(element).show();
                         $timeout(function () {
-                            $(elem).hide();
+                            $(element).hide();
                             scope.notification.status = 'hide';
-                        }, 5000);
+                        }, 4000);
                     }
                 });
             }

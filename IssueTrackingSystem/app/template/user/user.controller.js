@@ -1,6 +1,12 @@
 "use strict";
 
 angular.module('IssueTrackingSystem.controllers.user', [])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/profile/password', {
+            templateUrl: 'app/template/user/change-password.html',
+            controller: 'User'
+        });
+    }])
     .controller('User', ['$scope', 'debug', '$location', 'authentication', '$sessionStorage', 'users',
         function user($scope, debug, $location, authentication, $sessionStorage, users) {
 
@@ -34,6 +40,16 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                         //if debug mode is activated
                         debug ? console.log(registeredUser) : '';
                         $scope.loginUserInSystem(registeredUser);
+                    }, function (error) {
+                        console.error(error);
+                    });
+            };
+            
+            $scope.changeUserPassword = function changePass(changeData) {
+                debugger;
+                users.changePassword(changeData)
+                    .then(function (changed) {
+                        console.log(changed);
                     }, function (error) {
                         console.error(error);
                     });

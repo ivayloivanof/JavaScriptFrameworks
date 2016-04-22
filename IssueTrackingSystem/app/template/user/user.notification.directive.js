@@ -47,3 +47,5 @@ angular.module('IssueTrackingSystem.directives.notification', [])
             }
         };
     }]);
+
+//TODO notification for error login and register

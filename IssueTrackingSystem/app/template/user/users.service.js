@@ -62,19 +62,19 @@ angular.module('IssueTrackingSystem.services.users', [])
                 });
             }
 
-            function changePassword(oldPass, newPass, confirmNewPass) {
-                if (newPass != confirmNewPass) {
-                    console.error('Passwords do not match.');   //TODO notification
+            function changePassword(changedData) {
+                if (changedData.passwordNew !== changedData.passwordNewConfirm) {
+                    console.error('Passwords do not match.');   //TODO throw notification
                     return;
                 }
 
                 var deferred = $q.defer();
-                var data = 'OldPassword=' + oldPass + '&NewPassword=' + newPass + '&ConfirmPassword=' + confirmNewPass;
+                var data = 'OldPassword=' + changedData.passwordOld + '&NewPassword=' + changedData.passwordNew + '&ConfirmPassword=' + changedData.passwordNewConfirm;
                 $http({
                     method : 'post',
                     url : BASE_URL + 'api/Account/ChangePassword',
                     data : data,
-                    headers : header.authenticationHeader() + header.getWWWContent()
+                    headers : header.authenticationHeaderAndWWWContent()
                 }).then(function (success) {
                     deferred.resolve(success);
                 }, function (error) {

@@ -49,7 +49,7 @@ angular.module('IssueTrackingSystem.services.users', [])
                         method: 'put',
                         url: BASE_URL + 'users/makeadmin',
                         data : data,
-                        headers: header.authenticationHeader() + header.getWWWContent()
+                        headers: header.authenticationHeaderAndWWWContent()
                     }).then(function (success) {
                         deferred.resolve(success);
                     }, function (error) {
@@ -64,7 +64,7 @@ angular.module('IssueTrackingSystem.services.users', [])
 
             function changePassword(changedData) {
                 if (changedData.passwordNew !== changedData.passwordNewConfirm) {
-                    console.error('Passwords do not match.');   //TODO throw notification
+                    console.error('Passwords new and old do not match.');   //TODO throw notification
                     return;
                 }
 

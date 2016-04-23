@@ -3,7 +3,7 @@
         <i class="icon-sitemap"></i>
         <h3>Issues</h3>
     </div>
-    <div class="widget-content" ng-controller="Issue">
+    <div class="widget-content" ng-controller="Issue" ng-init="getAllIssues()">
         <ul class="messages_layout">
             <li ng-repeat="issue in issues">
                 <div class="message_wrap span7">
@@ -19,7 +19,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a class="name">{{issue.Title}}</a></td>
+                                    <td><a href="#/issue-view/{{issue.Id}}" class="name">{{issue.Title}}</a></td>
                                     <td><a class="name">{{issue.Project.Name}}</a></td>
                                     <td><span class="time">{{issue.DueDate}}</span></td>
                                 </tr>

@@ -49,4 +49,4 @@ angular.module('IssueTrackingSystem.services.authentication', [])
                 loginUser: loginUser,
                 logout: logout
             };
-    }]);
+        }]);

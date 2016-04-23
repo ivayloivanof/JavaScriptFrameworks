@@ -108,13 +108,30 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            function getAllIssueComments(id) {
+                var deferred = $q.defer();
+
+                $http({
+                    method : 'get',
+                    url : BASE_URL + 'issues/' + id + '/comments',
+                    headers : header.authenticationHeader()
+                }).then(function (success) {
+                    deferred.resolve(success);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+                return deferred.promise;
+            }
+
             return {
                 getAllIssues : getAllIssues,
                 getActiveUserIssues : getActiveUserIssues,
                 getIssuesById : getIssuesById,
                 addIssue : addIssue,
                 editIssueById : editIssueById,
-                editIssueStatus : editIssueStatus
+                editIssueStatus : editIssueStatus,
+                getAllIssueComments : getAllIssueComments
             };
 
         }]);

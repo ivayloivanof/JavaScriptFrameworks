@@ -11,6 +11,7 @@ angular.module('IssueTrackingSystem', [
     'IssueTrackingSystem.controllers.project',
     'IssueTrackingSystem.controllers.user',
     'IssueTrackingSystem.controllers.issue',
+    'IssueTrackingSystem.directives.date',
     'IssueTrackingSystem.directives.navbar',
     'IssueTrackingSystem.directives.notification'])
     .config(['$routeProvider', function ($routeProvider) {

@@ -11,7 +11,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
         function ($scope, debug, issues, $routeParams) {
 
             $scope.getAllIssues = function () {
-                issues.getAllIssues('In Progress', 31, 1000, 1)
+                issues.getAllIssues('In Progress', 31, 10, 1)
                     .then(function (issues) {
                         //if debug mode is activated
                         debug ? console.log('All issues:', issues) : '';
@@ -26,6 +26,16 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                         debug ? console.log('Route params:', $routeParams) : '';
                         debug ? console.log('Issue:', issue) : '';
                         $scope.issue = issue.data;
+                    });
+            };
+
+            $scope.getIssueByProjectId = function () {
+                issues.getIssuesByProjectId($routeParams.id)
+                    .then(function (issues) {
+                        //if debug mode is activated
+                        debug ? console.log('Route params:', $routeParams) : '';
+                        debug ? console.log('Issues:', issues) : '';
+                        $scope.issues = issues.data;
                     });
             };
         }]);

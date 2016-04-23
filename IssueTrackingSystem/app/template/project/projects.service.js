@@ -20,7 +20,24 @@ angular.module('IssueTrackingSystem.services.projects', [])
                 return deferred.promise;
             }
 
+            function getProjectById(id) {
+                var deferred = $q.defer();
+
+                $http({
+                    method : 'get',
+                    url : BASE_URL + 'projects/' + id,
+                    headers : header.authenticationHeader()
+                }).then(function (success) {
+                    deferred.resolve(success);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+                return deferred.promise;
+            }
+
             return {
-                getAllProjects : getAllProjects
+                getAllProjects : getAllProjects,
+                getProjectById : getProjectById
             };
         }]);

@@ -4,12 +4,15 @@ angular.module('IssueTrackingSystem.services.issues', [])
     .factory('issues', ['$http', '$q', 'BASE_URL', 'header',
         function ($http, $q, BASE_URL, header) {
 
-            function getAllIssues() {
+            function getAllIssues(status, dueDate, pageSize, pageNumber) {
                 var deferred = $q.defer();
 
                 $http({
                     method: 'get',
-                    url: BASE_URL + 'issues/?filter=Status.Name == "In Progress" or DueDate.Day <= 31&pageSize=1000&pageNumber=1',
+                    url: BASE_URL + 'issues/?filter=Status.Name == ' + status
+                                    + ' or DueDate.Day <= ' + dueDate
+                                    + '&pageSize=' + pageSize
+                                    + '&pageNumber=' + pageNumber,
                     headers: header.authenticationHeader()
                 }).then(function (success) {
                     deferred.resolve(success);
@@ -20,8 +23,26 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            function getActiveUserIssues(pageSize, pageNumber, orderBy) {
+                var deferred = $q.defer();
+                $http({
+                    method : 'get',
+                    url : BASE_URL + 'issues/me?pageSize=' + pageSize
+                                    + '&pageNumber=' + pageNumber
+                                    + '&orderBy=' + orderBy,
+                    headers : header.authenticationHeader()
+                }).then(function (succes) {
+                    deferred.resolve(succes);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+                return deferred.promise;
+            }
+
             return {
-                getAllIssues : getAllIssues
+                getAllIssues : getAllIssues,
+                getActiveUserIssues : getActiveUserIssues
             };
 
         }]);

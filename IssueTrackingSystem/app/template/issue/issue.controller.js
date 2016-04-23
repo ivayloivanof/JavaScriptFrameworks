@@ -2,7 +2,7 @@
 
 angular.module('IssueTrackingSystem.controllers.issue', [])
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/issue-view/:id', {
+        $routeProvider.when('/issue/:id', {
             templateUrl: 'app/template/issue/issue-view.html',
             controller: 'Issue'
         });
@@ -20,11 +20,11 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
             };
             
             $scope.getIssueById = function () {
-                console.log($routeParams);
                 issues.getIssuesById($routeParams.id)
                     .then(function (issue) {
                         //if debug mode is activated
-                        debug ? console.log('All issues:', issue) : '';
+                        debug ? console.log('Route params:', $routeParams) : '';
+                        debug ? console.log('Issue:', issue) : '';
                         $scope.issue = issue.data;
                     });
             };

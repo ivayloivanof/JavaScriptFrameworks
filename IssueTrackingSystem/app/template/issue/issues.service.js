@@ -25,6 +25,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
 
             function getActiveUserIssues(pageSize, pageNumber, orderBy) {
                 var deferred = $q.defer();
+
                 $http({
                     method : 'get',
                     url : BASE_URL + 'issues/me?pageSize=' + pageSize
@@ -58,9 +59,27 @@ angular.module('IssueTrackingSystem.services.issues', [])
 
             function addIssue(issue) {
                 var deferred = $q.defer();
+
                 $http({
                     method : 'post',
                     url : BASE_URL + 'issues/',
+                    data : issue,
+                    headers : header.authenticationHeader()
+                }).then(function (success) {
+                    deferred.resolve(success);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+                return deferred.promise;
+            }
+
+            function editIssueById(id, issue) {
+                var deferred = $q.defer();
+
+                $http({
+                    method : 'put',
+                    url : BASE_URL + 'issues/' + id,
                     data : issue,
                     headers : header.authenticationHeader()
                 }).then(function (success) {
@@ -76,7 +95,8 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 getAllIssues : getAllIssues,
                 getActiveUserIssues : getActiveUserIssues,
                 getIssuesById : getIssuesById,
-                addIssue : addIssue
+                addIssue : addIssue,
+                editIssueById : editIssueById
             };
 
         }]);

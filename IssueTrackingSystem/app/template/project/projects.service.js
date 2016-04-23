@@ -36,8 +36,40 @@ angular.module('IssueTrackingSystem.services.projects', [])
                 return deferred.promise;
             }
 
+            function addProject(project){
+                var deferred = $q.defer();
+
+                $http({
+                    method : 'post',
+                    url : BASE_URL + 'projects/',
+                    data : project,
+                    headers : header.authenticationHeader()
+                }).then(function (success) {
+                    deferred.resolve(success);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+                return deferred.promise;
+            }
+
+            function editProjectById(id, project){
+                var deferred = $q.defer();
+
+                $http.put(BASE_URL + 'projects/' + id,
+                    data)
+                    .then(function(response) {
+                        deferred.resolve(response.data);
+                    }, function(error) {
+                        deferred.reject(error);
+                    });
+
+                return deferred.promise;
+            }
+
             return {
                 getAllProjects : getAllProjects,
-                getProjectById : getProjectById
+                getProjectById : getProjectById,
+                addProject : addProject
             };
         }]);

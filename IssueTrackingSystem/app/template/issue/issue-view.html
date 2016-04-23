@@ -1,0 +1,48 @@
+<div class="widget">
+    <div class="widget-header">
+        <i class="icon-sitemap"></i>
+        <h3>Issues</h3>
+    </div>
+    <div class="widget-content" ng-controller="Issue" ng-init="getIssueById()">
+        <ul class="messages_layout">
+            <li>
+                <div class="message_wrap span7">
+                    <span class="arrow"></span>
+                    <div class="info">
+                        <table cellpadding="5">
+                            <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Project</th>
+                                <th>Due Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><a href="#/issue-view/{{issue.Id}}" class="name">{{issue.Title}}</a></td>
+                                <td><a class="name">{{issue.Project.Name}}</a></td>
+                                <td><span class="time">{{issue.DueDate}}</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="options_arrow">
+                            <div class="dropdown pull-right">
+                                <a class="dropdown-toggle dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+                                    <i class="icon-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+                                    <li ng-repeat="labels in issue.Labels">
+                                        <a href="#"><i class="icon-tag icon-large"></i> {{labels.Name}}</a>
+                                    </li>
+                                    <li><a href="#"><i class="icon-lock icon-large"></i> Close</a></li>
+                                    <li><a href="#"><i class="icon-trash icon-large"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">{{issue.Description}}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

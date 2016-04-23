@@ -59,4 +59,11 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                 authentication.logout();
                 $location.path('/logout');
             };
+
+            $scope.hasLogged = function () {
+                if ($sessionStorage.isAuthenticated) {
+                    return true;
+                }
+                return false;
+            };
         }]);

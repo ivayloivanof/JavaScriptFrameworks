@@ -6,10 +6,10 @@
     <div class="widget-content" ng-controller="Issue" ng-init="getIssueById()">
         <ul class="messages_layout">
             <li>
-                <div class="message_wrap span7">
+                <div class="message_wrap span8">
                     <span class="arrow"></span>
                     <div class="info">
-                        <table cellpadding="5">
+                        <table cellpadding="10">
                             <thead>
                             <tr>
                                 <th>Title</th>
@@ -20,7 +20,7 @@
                             <tbody>
                             <tr>
                                 <td><a href="#/issue-view/{{issue.Id}}" class="name">{{issue.Title}}</a></td>
-                                <td><a class="name">{{issue.Project.Name}}</a></td>
+                                <td><a href="#/project-view/{{issue.Project.Id}}" class="name">{{issue.Project.Name}}</a></td>
                                 <td><span class="time">{{issue.DueDate}}</span></td>
                             </tr>
                             </tbody>

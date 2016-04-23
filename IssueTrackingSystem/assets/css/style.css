@@ -621,6 +621,11 @@ ul.messages_layout li .message_wrap .text {
 
 ul.messages_layout .dropdown-menu  li{ width:100%; font-size:11px;}
 
+.list-style-none {
+	list-style-type: none;
+    line-height: 25px;
+    font-size: 18px;
+}
 
 /* Full Calendar */
 

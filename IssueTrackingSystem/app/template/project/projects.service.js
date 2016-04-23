@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('IssueTrackingSystem.services.projects', [])
-    .factory('projects', ['$http', '$q', 'BASE_URL', '$sessionStorage',
-        function ($http, $q, BASE_URL, $sessionStorage) {
+    .factory('projects', ['$http', '$q', 'BASE_URL', 'header',
+        function ($http, $q, BASE_URL, header) {
 
             function getAllProjects() {
                 var deferred = $q.defer();
@@ -10,9 +10,7 @@ angular.module('IssueTrackingSystem.services.projects', [])
                 $http({
                     method: 'get',
                     url: BASE_URL + 'projects',
-                    headers: {
-                        'Authorization': $sessionStorage.token_type + ' ' + $sessionStorage.access_token
-                    }
+                    headers: header.authenticationHeader()
                 }).then(function (success) {
                     deferred.resolve(success);
                 }).then(function (error) {

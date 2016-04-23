@@ -44,12 +44,12 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                         console.error(error);
                     });
             };
-            
+
             $scope.changeUserPassword = function changePass(changeData) {
-                debugger;
                 users.changePassword(changeData)
                     .then(function (changed) {
-                        console.log(changed);
+                        //if debug mode is activated
+                        debug ? console.log('Changed password:', changed) : '';
                     }, function (error) {
                         console.error(error);
                     });

@@ -7,12 +7,12 @@ angular.module('IssueTrackingSystem.services.issues', [])
             function getAllIssues(status, dueDate, pageSize, pageNumber) {
                 var deferred, urlQuery;
                 deferred = $q.defer();
-                urlQuery = BASE_URL + 'issues/?filter=Status.Name == ' + status + ' or DueDate.Day <= ' + dueDate;  //TODO check status and dueDate
-                if (pageSize && pageSize > 0) {
+                urlQuery = BASE_URL + 'issues/?filter=Status.Name == "' + status + '" or DueDate.Day <=' + dueDate;  //TODO check status and dueDate
+                if (pageSize) {
                     urlQuery += '&pageSize=' + pageSize;
                 }
 
-                if (pageNumber && pageNumber > 0) {
+                if (pageNumber) {
                     urlQuery += '&pageNumber=' + pageNumber;
                 }
 

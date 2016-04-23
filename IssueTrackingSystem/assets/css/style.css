@@ -627,6 +627,28 @@ ul.messages_layout .dropdown-menu  li{ width:100%; font-size:11px;}
     font-size: 18px;
 }
 
+/*Open - Close Issue */
+.Open>a {
+    color: tomato;
+    font-size: 15px;
+}
+
+.Closed>a {
+    color: grey;
+    font-size: 15px;
+}
+
+.InProgress>a {
+    color: green;
+    font-size: 15px;
+}
+
+.StoppedProgress>a {
+    color: blue;
+    font-size: 15px;
+}
+/*Open - Close Issue */
+
 /* Full Calendar */
 
 .fc {

@@ -1,0 +1,39 @@
+<div class="widget widget-nopad" ng-controller="Project" ng-init="getProjectById()">
+    <div class="widget-header">
+        <i class="icon-list-alt"></i><h3>{{project.Name}}</h3>
+    </div>
+    <div class="widget-content">
+        <div class="widget big-stats-container">
+            <div class="widget-content">
+                <h6 class="bigstats">{{project.Description}}</h6>
+                <div id="big_stats" class="cf">
+                    <div class="stat">
+                        <i class="icon-user"> Lead</i>
+                        <ol>
+                            <li class="list-style-none"><a href="#/user/{{project.Lead.Id}}">{{project.Lead.Username}}</a></li>
+                        </ol>
+                    </div>
+                    <div class="stat">
+                        <i class="icon-bookmark"> Labels</i>
+                        <ol>
+                            <li ng-repeat="label in project.Labels" class="list-style-none">{{label.Name}}</li>
+                        </ol>
+                    </div>
+                    <div class="stat">
+                        <i class="icon-asterisk"> Priorities</i>
+                        <ol>
+                            <li ng-repeat="prioritie in project.Priorities" class="list-style-none">{{prioritie.Name}}</li>
+                        </ol>
+                    </div>
+                    <div class="stat" ng-controller="Issue">
+                        <i class="icon-sitemap"> Issues</i>
+                        <ol ng-init="getIssueByProjectId()">
+                            <li class="list-style-none {{issue.Status.Name}}" ng-repeat="issue in issues">
+                                <a href="#/issue/{{issue.Id}}">{{issue.Status.Name}} : {{issue.Title}}</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

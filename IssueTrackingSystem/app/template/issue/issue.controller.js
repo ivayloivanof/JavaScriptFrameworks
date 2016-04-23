@@ -5,7 +5,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
         function ($scope, debug, issues) {
 
             $scope.getAllIssues = function () {
-                issues.getAllIssues()
+                issues.getAllIssues('In Progress', 31, 1000, 1)
                     .then(function (issues) {
                         //if debug mode is activated
                         debug ? console.log('All issues:', issues) : '';

@@ -29,7 +29,7 @@
                         <i class="icon-sitemap"> Issues</i>
                         <ol ng-init="getIssueByProjectId()">
                             <li class="list-style-none {{issue.Status.Name}}" ng-repeat="issue in issues">
-                                <a href="#/issue/{{issue.Id}}">{{issue.Status.Name}} : {{issue.Title}}</a></li>
+                                <a href="#/issues/{{issue.Id}}">{{issue.Status.Name}} : {{issue.Title}}</a></li>
                         </ol>
                     </div>
                 </div>

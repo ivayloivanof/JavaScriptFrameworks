@@ -84,7 +84,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
 
                 $http({
                     method : 'post',
-                    url : BASE_URL + 'issues/',
+                    url : BASE_URL + 'issues',
                     data : issue,
                     headers : header.authenticationHeader()
                 }).then(function (success) {

@@ -7,13 +7,10 @@
 <!--if login user-->
 <div class="row" ng-if="isAuthenticated">
     <div class="span11 alert alert-{{notification.type}}" role="alert" notification-success="{{notification.status}}">{{notification.message}}</div>
-    <!--<div class="span8">-->
-        <!--<div ng-include="'app/template/project/project-all.html'"></div>-->
-    <!--</div>-->
-    <div class="span8">
-        <div ng-include="'app/template/issue/issue-all.html'"></div>
-    </div>
 
+    <div class="span8">
+        <div ng-include="'app/template/issue/issues.html'"></div>
+    </div>
     <div class="span4">
         <div ng-include="'app/template/important-page.html'"></div>
     </div>

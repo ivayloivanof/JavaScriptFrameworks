@@ -1,6 +1,7 @@
 body {
 	background: #f9f6f1;
 	font: 13px/1.7em 'Open Sans';
+	font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
     
 p { 
@@ -613,10 +614,12 @@ ul.messages_layout li .message_wrap .info .time {
 	margin-left: 6px
 }
 ul.messages_layout li .message_wrap .text {
+    font-size: 15px;
 	float: left;
 	width: 100%;
-	border-top: 1px solid #cfcfcf;
-	padding-top: 5px
+	padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 ul.messages_layout .dropdown-menu  li{ width:100%; font-size:11px;}
@@ -628,22 +631,22 @@ ul.messages_layout .dropdown-menu  li{ width:100%; font-size:11px;}
 }
 
 /*Open - Close Issue */
-.Open>a {
+.Open>a, a.Open {
     color: tomato;
     font-size: 15px;
 }
 
-.Closed>a {
+.Closed>a, a.Closed {
     color: grey;
     font-size: 15px;
 }
 
-.InProgress>a {
+.InProgress>a, a.InProgress{
     color: green;
     font-size: 15px;
 }
 
-.StoppedProgress>a {
+.StoppedProgress>a, a.StoppedProgress {
     color: blue;
     font-size: 15px;
 }

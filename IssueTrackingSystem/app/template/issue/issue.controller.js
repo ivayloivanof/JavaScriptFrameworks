@@ -3,7 +3,11 @@
 angular.module('IssueTrackingSystem.controllers.issue', [])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
-            .when('/issue/:id', {
+            .when('/issues', {
+                templateUrl: 'app/template/issue/issues.html',
+                controller: 'Issue'
+            })
+            .when('/issues/:id', {
                 templateUrl: 'app/template/issue/issue-view.html',
                 controller: 'Issue'
             }).when('/projects/:id/add-issue', {
@@ -15,7 +19,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
         function ($scope, debug, issues, $routeParams) {
 
             $scope.getAllIssues = function getAllIssues() {
-                issues.getAllIssues('In Progress', 31, 10, 1)
+                issues.getAllIssues('In Progress', 31, 1000, 1)
                     .then(function (issues) {
                         //if debug mode is activated
                         debug ? console.log('All issues:', issues) : '';

@@ -10,15 +10,10 @@ angular.module('IssueTrackingSystem.controllers.main', [])
     .controller('Main', ['$scope', '$sessionStorage',
         function ($scope, $sessionStorage) {
             //if not authenticated
-            if (!$sessionStorage.username || !$sessionStorage.isAuthenticated) {
-                //TODO delete is unnecessary
-                delete $sessionStorage.access_token;
-                delete $sessionStorage.token_type;
-                delete $sessionStorage.username;
+            if ($sessionStorage.isAuthenticated === 'undefinded') {
                 $sessionStorage.isAuthenticated = false;
                 $scope.isAuthenticated = $sessionStorage.isAuthenticated;
             } else {
-                $sessionStorage.isAuthenticated = true;
                 $scope.isAuthenticated = $sessionStorage.isAuthenticated;
             }
         }]);

@@ -1,4 +1,4 @@
-<div class="widget widget-table action-table" ng-controller="Project">
+<div class="widget widget-table action-table" ng-controller="Project" ng-init="getAllProjects()">
     <div class="widget-header">
         <i class="icon-th-list"></i>
         <h3>All Projects</h3>
@@ -18,11 +18,11 @@
                 <tr>
                     <th scope="row">{{project.Id}}</th>
                     <td>{{project.Name}}</td>
-                    <td>{{project.Description | limitTo:15}}</td>
+                    <td>{{project.Description | limitTo:25}}</td>
                     <td>{{project.Lead.Username}}</td>
                     <td class="td-actions">
-                        <a href="javascript:;" class="btn btn-small btn-success" title="View"><i class="btn-icon-only icon-sitemap"></i></a>
-                        <a href="javascript:;" class="btn-icon-only icon-trash" title="Delete"></i></a>
+                        <a href="#/projects/{{project.Id}}" class="btn btn-small btn-success" title="View"><i class="btn-icon-only icon-sitemap"></i></a>
+                        <a href="#/projects/{{project.Id}}/edit" class="btn-icon-only icon-cogs" title="Edit"></i></a>
                     </td>
                 </tr>
             </tbody>

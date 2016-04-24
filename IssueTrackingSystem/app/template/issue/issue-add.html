@@ -5,13 +5,13 @@
             <div class="form-group" ng-init="getAllUsers()">
                 <label for="Assignee">Assignee</label>
                 <select ng-model="issue.assigneeId" id="Assignee" class="span3 form-control">
-                    <option ng-repeat="user in allUsers" value="{{user.Id}}">{{user.Username}}</option>
+                    <option ng-repeat="user in allUsers | orderBy:'Username'" value="{{user.Id}}">{{user.Username}}</option>
                 </select>
             </div>
             <div class="form-group" ng-init="getAllProjects()">
                 <label for="Projects">Projects</label>
                 <select ng-model="issue.projectId" id="Projects" class="span3 form-control">
-                    <option ng-repeat="project in projects" value="{{project.Id}}">{{project.Name}}</option>
+                    <option ng-repeat="project in projects | orderBy:'Name'" value="{{project.Id}}">{{project.Name}}</option>
                 </select>
             </div>
             <div class="form-group">

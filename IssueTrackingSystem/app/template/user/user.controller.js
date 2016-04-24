@@ -64,6 +64,8 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                 if ($sessionStorage.isAuthenticated) {
                     return true;
                 }
-                return false;
+
+                $sessionStorage.isAuthenticated = false;
+                $location.path('/');
             };
         }]);

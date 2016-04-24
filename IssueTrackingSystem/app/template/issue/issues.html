@@ -1,0 +1,44 @@
+<div class="widget">
+    <div class="widget-header">
+        <i class="icon-sitemap"></i>
+        <h3>Issues</h3>
+    </div>
+    <div class="widget-content" ng-controller="Issue" ng-init="getAllIssues()">
+        <ul class="messages_layout">
+            <li ng-repeat="issue in issues">
+                <div class="message_wrap {{issue.Status.Name}} span7">
+                    <span class="arrow"></span>
+                    <div class="info">
+                        <div class="options_arrow">
+                            <div class="dropdown pull-right">
+                                <a class="dropdown-toggle dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+                                    <i class=" icon-circle-arrow-down"></i>
+                                </a>
+                                <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+                                    <ul>
+                                        <li><i class="icon-wrench icon-large"></i> Change Status</li>
+                                        <li ng-repeat="status in issue.AvailableStatuses">
+                                            <a class="{{status.Name}}" href="#/"><i class="icon-legal "></i> {{status.Name}}</a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li><i class="icon-bookmark icon-large"></i> Labels</li>
+                                        <li ng-repeat="labels in issue.Labels">
+                                            <a href="#/"><i class="icon-bookmark icon-large"></i> {{labels.Name}}</a>
+                                        </li>
+                                    </ul>
+                                    <li><a href="#/"><i class="icon-trash icon-large"></i> Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">Title : <a href="#/issues/{{issue.Id}}" class="name">{{issue.Title}}</a></div>
+                    <div class="text">Project : <a href="#/projects/{{issue.Project.Id}}" class="name">{{issue.Project.Name}}</a></div>
+                    <div class="text">Due Date : <span class="time">{{issue.DueDate}}</span></div>
+                    <div class="text">Status : {{issue.Status.Name}}</div>
+                    <div class="text">Desc : {{issue.Description}}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

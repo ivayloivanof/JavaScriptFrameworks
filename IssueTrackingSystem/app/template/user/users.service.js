@@ -37,9 +37,9 @@ angular.module('IssueTrackingSystem.services.users', [])
             }
 
             function makeUserAdmin(userId) {
-                getCurrent().then(function () {
-                    if (!$sessionStorage.isAdmin) {
-                        console.error('Only admins can do that.');  //TODO Notification error
+                getCurrentUser().then(function (logedUser) {
+                    if (!logedUser.isAdmin) {
+                        console.error('Only admins can access this endpoint.');  //TODO Notification error
                         return;
                     }
 

@@ -1,7 +1,7 @@
 <div class="widget">
     <div class="widget-header">
         <i class="icon-sitemap"></i>
-        <h3>Issues</h3>
+        <h3>Issue</h3>
     </div>
     <div class="widget-content" ng-controller="Issue" ng-init="getIssueById()">
         <ul class="messages_layout">
@@ -20,7 +20,7 @@
                             <tbody>
                             <tr>
                                 <td><a href="#/issue/{{issue.Id}}" class="name">{{issue.Title}}</a></td>
-                                <td><a href="#/project/{{issue.Project.Id}}" class="name">{{issue.Project.Name}}</a></td>
+                                <td><a href="#/projects/{{issue.Project.Id}}" class="name">{{issue.Project.Name}}</a></td>
                                 <td><span class="time">{{issue.DueDate}}</span></td>
                             </tr>
                             </tbody>

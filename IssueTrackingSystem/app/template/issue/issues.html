@@ -3,7 +3,7 @@
         <i class="icon-sitemap"></i>
         <h3>Issues</h3>
     </div>
-    <div class="widget-content" ng-controller="Issue" ng-init="getAllIssues()">
+    <div class="widget-content" ng-controller="Issue" ng-init="getMyIssues()">
         <ul class="messages_layout">
             <li ng-repeat="issue in issues">
                 <div class="message_wrap {{issue.Status.Name}} span7">

@@ -2,12 +2,12 @@
 angular.module('IssueTrackingSystem.controllers.project', [])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
-            .when('/projects/:id/edit', {
-                templateUrl: 'app/template/project/project-edit.html',
+            .when('/projects/add-project', {
+                templateUrl: 'app/template/project/project-add.html',
                 controller: 'Project'
             })
-            .when('/projects/:id/add-project', {
-                templateUrl: 'app/template/project/project-add.html',
+            .when('/projects/:id/edit', {
+                templateUrl: 'app/template/project/project-edit.html',
                 controller: 'Project'
             })
             .when('/projects/:id', {
@@ -72,9 +72,6 @@ angular.module('IssueTrackingSystem.controllers.project', [])
                             }, function (error) {
                                 console.error(error);
                             });
-
-                        console.log(projectCompleteObject);
-                        //TODO upload project
                     }, function (error) {
                         console.error(error);
                     });

@@ -10,7 +10,12 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
             .when('/issues/:id', {
                 templateUrl: 'app/template/issue/issue-view.html',
                 controller: 'Issue'
-            }).when('/projects/:id/add-issue', {
+            })
+            .when('/issues/:id/edit', {
+                templateUrl: 'app/template/issue/issue-edit.html',
+                controller: 'Issue'
+            })
+            .when('/projects/:id/add-issue', {
                 templateUrl: 'app/template/issue/issue-add.html',
                 controller: 'Issue'
             });
@@ -47,6 +52,25 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                     });
             };
 
+            $scope.getAllCommentsByIssueId = function getAllCommentsByIssueId() {
+                issues.getAllIssueComments($routeParams.id)
+                    .then(function (comments) {
+                        //if debug mode is activated
+                        debug ? console.log('Route params:', $routeParams) : '';
+                        debug ? console.log('All Comments:', comments) : '';
+                        $scope.comments = comments.data;
+                    });
+            };
+            
+            $scope.getMyIssues = function () {
+                issues.getMyIssues()
+                    .then(function (issues) {
+                        //if debug mode is activated
+                        debug ? console.log('All my issues:', issues) : '';
+                        $scope.issues = issues.data.Issues;
+                    });
+            };
+
             //admin or lead - for other not working
             $scope.addIssue = function addIssue(issue) {
 
@@ -54,7 +78,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 var issueCompleteObject = {
                     Title: issue.title,
                     Description: issue.description,
-                    DueDate: issue.dueDate,
+                    DueDate: issue.dueDate, //Todo date is problem - 29.04.2016 ever
                     ProjectId: issue.projectId,
                     AssigneeId: issue.assigneeId,
                     PriorityId: issue.priorityId,
@@ -67,7 +91,35 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
 
                 issues.addIssue(issueCompleteObject)
                     .then(function (success) {
-                        console.log(success);
+                        //if debug mode is activated
+                        debug ? console.log('Add issue success:', success) : '';
                     });
+            };
+
+            $scope.editIssue = function (issueEdit) {
+                $scope.issueEdit;
+                //TODO load data to issue edit page and complete edit logic
+                console.log(issueEdit);
+            };
+
+            $scope.addComment = function addComment(comment, currentUser) {
+
+                var commentCompleteObject = {
+                    Author : currentUser,
+                    CreatedOn : new Date(),
+                    Text : comment.text
+                };
+
+                console.log(comment);
+                console.log(currentUser);
+
+                issues.addCommentToIssue($routeParams.id, commentCompleteObject)
+                    .then(function (success) {
+                        //if debug mode is activated
+                        debug ? console.log('Route params:', $routeParams) : '';
+                        debug ? console.log('Add Comment success:', success) : '';
+                    });
+
+                
             };
         }]);

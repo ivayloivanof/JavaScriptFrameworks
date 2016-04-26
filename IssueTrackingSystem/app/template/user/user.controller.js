@@ -21,6 +21,7 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                         users.getCurrentUser()
                             .then(function (currentUser) {
                                 $sessionStorage.isAdmin = currentUser.data.isAdmin;
+                                $sessionStorage.Id = currentUser.data.Id;
                                 //if debug mode is activated
                                 debug ? console.log('Current user:', currentUser) : '';
                             }, function (error) {
@@ -37,9 +38,13 @@ angular.module('IssueTrackingSystem.controllers.user', [])
             $scope.registerUserInSystem = function (user) {
                 authentication.registerUser(user)
                     .then(function (registeredUser) {
+                        var userLogin = {
+                            username : user.email,
+                            password : user.password
+                        };
                         //if debug mode is activated
                         debug ? console.log(registeredUser) : '';
-                        $scope.loginUserInSystem(registeredUser);
+                        $scope.loginUserInSystem(userLogin);
                     }, function (error) {
                         console.error(error);
                     });
@@ -60,12 +65,35 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                 $location.path('/logout');
             };
 
-            $scope.hasLogged = function () {
+            $scope.hasLogged = function hasLogged() {
                 if ($sessionStorage.isAuthenticated) {
                     return true;
                 }
 
                 $sessionStorage.isAuthenticated = false;
                 $location.path('/');
+            };
+
+            $scope.isAdmin = function isAdmin() {
+                if ($sessionStorage.isAdmin) {
+                    return true;
+                }
+                return false;
+            };
+
+            $scope.getCurrentUser = function getCurrentUser() {
+                users.getCurrentUser()
+                    .then(function (currentUser) {
+                        //if debug mode is activated
+                        debug ? console.log('Current User:', currentUser) : '';
+                        $scope.currentUser = currentUser.data;
+                    });
+            };
+
+            $scope.isLead = function isLead(id) {
+                if ($sessionStorage.Id === id) {
+                    return true;
+                }
+                return false;
             };
         }]);

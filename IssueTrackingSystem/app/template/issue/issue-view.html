@@ -1,47 +1,74 @@
 <div class="widget" ng-controller="Issue" ng-init="getIssueById()">
-    <div class="widget-header">
-        <i class="icon-sitemap"></i>
-        <h3>IssueKey : <em style="color: tomato;">{{issue.IssueKey}}</em></h3>
-    </div>
-    <div class="widget-content">
-        <ul class="messages_layout">
-            <li>
-                <div class="message_wrap {{issue.Status.Name}} span7">
-                    <span class="arrow"></span>
-                    <div class="info">
-                        <div class="options_arrow">
-                            <div class="dropdown pull-right">
-                                <a class="dropdown-toggle dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
-                                    <i class=" icon-circle-arrow-down"></i>
-                                </a>
-                                <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                                    <ul>
-                                        <li><i class="icon-wrench icon-large"></i> Change Status</li>
-                                        <li ng-repeat="status in issue.AvailableStatuses">
-                                            <a class="{{status.Name}}" href="#/"><i class="icon-legal "></i> {{status.Name}}</a>
+    <div ng-controller="User" ng-show="isAdmin()">
+        <div class="widget-header">
+            <i class="icon-sitemap"></i>
+            <h3>IssueKey : <em style="color: tomato;">{{issue.IssueKey}}</em></h3>
+        </div>
+        <div class="widget-content" >
+            <ul class="messages_layout">
+                <li>
+                    <div class="message_wrap {{issue.Status.Name}} span7">
+                        <span class="arrow"></span>
+                        <div class="info">
+                            <div class="options_arrow">
+                                <div class="dropdown pull-right">
+                                    <a class="dropdown-toggle dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+                                        <i class=" icon-circle-arrow-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+                                        <ul ng-show="isAdmin() || isLead()">
+                                            <li><i class="icon-wrench icon-large"></i> Change Status</li>
+                                            <li ng-repeat="status in issue.AvailableStatuses">
+                                                <a class="{{status.Name}}" href="#/">
+                                                    <i class="icon-legal "></i> {{status.Name}}</a>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li><i class="icon-bookmark icon-large"></i> Labels</li>
+                                            <li ng-repeat="labels in issue.Labels">
+                                                <a href="#/"><i class="icon-bookmark icon-large"></i> {{labels.Name}}</a>
+                                            </li>
+                                        </ul>
+                                        <li><a href="#/issues/{{issue.Id}}/edit" ng-click="editIssue(issue)">
+                                            <i class="icon-edit icon-large"></i> Edit</a>
                                         </li>
                                     </ul>
-                                    <ul>
-                                        <li><i class="icon-bookmark icon-large"></i> Labels</li>
-                                        <li ng-repeat="labels in issue.Labels">
-                                            <a href="#/"><i class="icon-bookmark icon-large"></i> {{labels.Name}}</a>
-                                        </li>
-                                    </ul>
-                                    <li><a href="#/"><i class="icon-trash icon-large"></i> Delete</a></li>
-                                </ul>
+                                </div>
                             </div>
                         </div>
+                        <div class="text">Title : <a href="#/issues/{{issue.Id}}" class="name">{{issue.Title}}</a></div>
+                        <div class="text">Project : <a href="#/projects/{{issue.Project.Id}}" class="name">{{issue.Project.Name}}</a></div>
+                        <div class="text">Due Date : <span class="time">{{issue.DueDate}}</span></div>
+                        <div class="text">Status : {{issue.Status.Name}}</div>
+                        <div class="text">Desc : {{issue.Description}}</div>
+                        <div class="text">
+                            <ul class="messages_layout" ng-init="getAllCommentsByIssueId()">
+                                <li class="from_user" ng-repeat="comment in comments">
+                                    <div class="message_wrap span5"><span class="arrow"></span>
+                                        <div class="info"><a class="name">{{comment.Author.Username}} </a>
+                                            <span class="time"> {{comment.CreatedOn}}</span>
+                                        </div>
+                                        <div class="text">{{comment.Text}}</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text">
+                            <form method="post" ng-show="isAdmin()" ng-init="getCurrentUser()">
+                                <div class="form-group">
+                                    <label for="Text">Text</label>
+                                    <input type="text" ng-model="comment.text" class="span3 form-control" id="Text" placeholder="Text" value="Text">
+                                    <br>
+                                </div>
+                                <button ng-click="addComment(comment, currentUser)" class="btn btn-success">Add Comment</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="text">Title : <a href="#/issues/{{issue.Id}}" class="name">{{issue.Title}}</a></div>
-                    <div class="text">Project : <a href="#/projects/{{issue.Project.Id}}" class="name">{{issue.Project.Name}}</a></div>
-                    <div class="text">Due Date : <span class="time">{{issue.DueDate}}</span></div>
-                    <div class="text">Status : {{issue.Status.Name}}</div>
-                    <div class="text">Desc : {{issue.Description}}</div>
-                </div>
-            </li>
-        </ul>
-        <div class="span4">
-            <div ng-include="'app/template/important-page.html'"></div>
+                </li>
+            </ul>
+            <div class="span4">
+                <div ng-include="'app/template/important-page.html'"></div>
+            </div>
         </div>
     </div>
 </div>

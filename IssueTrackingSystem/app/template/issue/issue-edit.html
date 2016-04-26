@@ -1,0 +1,42 @@
+<div class="account-container" ng-controller="Issue">
+    <div class="content clearfix">
+        <h2>Edit Issue</h2>
+        <form method="post" ng-controller="Project">
+            <div class="form-group" ng-init="getAllUsers()">
+                <label for="Assignee">Assignee</label>
+                <select ng-model="issueEdit.assigneeId" id="Assignee" class="span3 form-control">
+                    <option ng-repeat="user in allUsers | orderBy:'Username'" value="{{user.Id}}">{{user.Username}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Project">Projects</label>
+                <input type="text" ng-model="issue.projectId" class="span3 form-control" id="Project" placeholder="{{issueEdit.Project.Id}}" value="{{issueEdit.Project.Name}}"/>
+            </div>
+            <div class="form-group">
+                <label for="Due">Due</label>
+                <input type="date" ng-model="issue.dueDate" class="span3 form-control" id="Due" />
+            </div>
+            <div class="form-group">
+                <label for="Priorities">Priorities</label>
+                <select ng-model="issue.priorityId" id="Priorities" class="span3 form-control">
+                    <option value="{{issueEdit.Priority.Id}}">{{issueEdit.Priority.Name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="labels">Labels (comma separated)</label>
+                <input type="text" ng-model="issue.labels" class="span3 form-control" id="labels" placeholder="{{labels}}" value="{{labels}}">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="Title">Title {{issueEdit}}</label>
+                <input type="text" ng-model="issue.title" class="span3 form-control" id="Title" placeholder="{{issueEdit.Title}}" value="{{issueEdit.Title}}">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="span3 form-control" ng-model="issue.description" id="description" placeholder="{{issueEdit.Description}}"></textarea>
+            </div>
+            <button ng-click="editIssue(issue)" class="btn btn-success">Edit Issue</button>
+        </form>
+    </div>
+</div>

@@ -16,6 +16,13 @@ angular.module('IssueTrackingSystem.services.header', [])
                 };
             }
 
+            function authenticationHeaderAndJSONContent() {
+                return {
+                    'Authorization': $sessionStorage.token_type + ' ' + $sessionStorage.access_token,
+                    'Content-Type': 'application/json'
+                };
+            }
+
             function getWWWContent() {
                 return {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -32,6 +39,7 @@ angular.module('IssueTrackingSystem.services.header', [])
                 authenticationHeader : authenticationHeader,
                 getWWWContent : getWWWContent,
                 getJSONContent : getJSONContent,
-                authenticationHeaderAndWWWContent : authenticationHeaderAndWWWContent
+                authenticationHeaderAndWWWContent : authenticationHeaderAndWWWContent,
+                authenticationHeaderAndJSONContent : authenticationHeaderAndJSONContent
             };
         }]);

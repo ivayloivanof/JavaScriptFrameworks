@@ -70,10 +70,30 @@ angular.module('IssueTrackingSystem.services.projects', [])
                 return deferred.promise;
             }
 
+            function getProjectByFilter(pageSize, pageNumber, filter, value) {
+                var deferred = $q.defer();
+
+                $http({
+                    method : 'get',
+                    url : BASE_URL + 'projects/?' + 'pageSize=' +
+                            pageSize + '&pageNumber=' +
+                            pageNumber + '&filter=' +
+                            filter + '=="' + value + '"',
+                    headers : header.authenticationHeaderAndJSONContent()
+                }).then(function (success) {
+                    deferred.resolve(success);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+                return deferred.promise;
+            }
+
             return {
                 getAllProjects : getAllProjects,
                 getProjectById : getProjectById,
                 addProject : addProject,
-                editProjectById : editProjectById
+                editProjectById : editProjectById,
+                getProjectByFilter : getProjectByFilter
             };
         }]);

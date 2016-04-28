@@ -53,22 +53,21 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="text">
-                            <form method="post" ng-show="isAdmin()" ng-init="getCurrentUser()">
-                                <div class="form-group">
-                                    <label for="Text">Text</label>
-                                    <input type="text" ng-model="comment.text" class="span3 form-control" id="Text" placeholder="Text" value="Text">
-                                    <br>
-                                </div>
-                                <button ng-click="addComment(comment, currentUser)" class="btn btn-success">Add Comment</button>
-                            </form>
-                        </div>
+                    </div>
+
+                    <div class="text span4">
+                        <form method="post" ng-show="isAdmin()" ng-init="getCurrentUser()">
+                            <h3>Add Comment</h3>
+                            <div class="form-group">
+                                <label for="Text">Comment Text</label>
+                                <input type="text" ng-model="comment.text" class="span3 form-control" id="Text" placeholder="Text" value="Text">
+                                <br>
+                            </div>
+                            <button ng-click="addComment(comment, currentUser)" class="btn btn-success">Add Comment</button>
+                        </form>
                     </div>
                 </li>
             </ul>
-            <div class="span4">
-                <div ng-include="'app/template/important-page.html'"></div>
-            </div>
         </div>
     </div>
 </div>

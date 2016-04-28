@@ -4,25 +4,26 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/issues', {
-                templateUrl: 'app/template/issue/issues.html',
+                templateUrl: 'app/issue/partials/issues.html',
                 controller: 'Issue'
             })
             .when('/issues/:id', {
-                templateUrl: 'app/template/issue/issue-view.html',
+                templateUrl: 'app/issue/partials/issue-view.html',
                 controller: 'Issue'
             })
             .when('/issues/:id/edit', {
-                templateUrl: 'app/template/issue/issue-edit.html',
+                templateUrl: 'app/issue/partials/issue-edit.html',
                 controller: 'Issue'
             })
             .when('/projects/:id/add-issue', {
-                templateUrl: 'app/template/issue/issue-add.html',
+                templateUrl: 'app/issue/partials/issue-add.html',
                 controller: 'Issue'
             });
     }])
-    .controller('Issue', ['$scope', 'debug', 'issues', '$routeParams',
-        function ($scope, debug, issues, $routeParams) {
+    .controller('Issue', ['$scope', 'debug', 'issues', '$routeParams', '$route',
+        function ($scope, debug, issues, $routeParams, $route) {
 
+            //completed
             $scope.getAllIssues = function getAllIssues() {
                 issues.getAllIssues('In Progress', 31, 1000, 1)
                     .then(function (issues) {
@@ -31,27 +32,30 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                         $scope.issues = issues.data.Issues;
                     });
             };
-            
+
+            //completed
             $scope.getIssueById = function getIssueById() {
                 issues.getIssuesById($routeParams.id)
                     .then(function (issue) {
                         //if debug mode is activated
                         debug ? console.log('Route params:', $routeParams) : '';
-                        debug ? console.log('Issue:', issue) : '';
+                        debug ? console.log('Issue by Id:', issue) : '';
                         $scope.issue = issue.data;
                     });
             };
 
+            //completed
             $scope.getIssueByProjectId = function getIssueByProjectId() {
                 issues.getIssuesByProjectId($routeParams.id)
                     .then(function (issues) {
                         //if debug mode is activated
                         debug ? console.log('Route params:', $routeParams) : '';
-                        debug ? console.log('Issues:', issues) : '';
+                        debug ? console.log('Issues by Project Id:', issues) : '';
                         $scope.issues = issues.data;
                     });
             };
 
+            //completed
             $scope.getAllCommentsByIssueId = function getAllCommentsByIssueId() {
                 issues.getAllIssueComments($routeParams.id)
                     .then(function (comments) {
@@ -61,7 +65,8 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                         $scope.comments = comments.data;
                     });
             };
-            
+
+            //completed
             $scope.getMyIssues = function () {
                 issues.getMyIssues()
                     .then(function (issues) {
@@ -102,6 +107,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 console.log(issueEdit);
             };
 
+            //completed
             $scope.addComment = function addComment(comment, currentUser) {
 
                 var commentCompleteObject = {
@@ -110,16 +116,12 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                     Text : comment.text
                 };
 
-                console.log(comment);
-                console.log(currentUser);
-
                 issues.addCommentToIssue($routeParams.id, commentCompleteObject)
                     .then(function (success) {
                         //if debug mode is activated
                         debug ? console.log('Route params:', $routeParams) : '';
                         debug ? console.log('Add Comment success:', success) : '';
+                        $route.reload();
                     });
-
-                
             };
         }]);

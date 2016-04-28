@@ -41,6 +41,8 @@ angular.module('IssueTrackingSystem.services.authentication', [])
                 delete $sessionStorage.access_token;
                 delete $sessionStorage.token_type;
                 delete $sessionStorage.username;
+                delete $sessionStorage.isAdmin;
+                delete $sessionStorage.Id;
                 $sessionStorage.isAuthenticated = false;
             }
 

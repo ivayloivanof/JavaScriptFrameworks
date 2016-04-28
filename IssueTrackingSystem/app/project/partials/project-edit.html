@@ -1,0 +1,31 @@
+<div class="account-container" ng-controller="Project">
+    <div class="content clearfix" ng-init="getProjectById()" ng-controller="User">
+        <h2>Edit Project</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" ng-model="projectData.name" class="span3 form-control" id="name" placeholder="{{project.Name}}">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="span3 form-control" ng-model="projectData.description" id="description" placeholder="{{project.Description}}"></textarea>
+            </div>
+            <div class="form-group" ng-init="getAllUsers()">
+                <label for="leader">Leader</label>
+                <select ng-model="projectData.leadId" id="leader" class="span3 form-control">
+                    <option ng-repeat="user in allUsers | orderBy:'Username'" value="{{user.Id}}">{{user.Username}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="priorities">Priorities (comma separated)</label>
+                <input type="text" ng-model="projectData.priorities" class="span3 form-control" id="priorities" placeholder="{{priorities}}">
+            </div>
+            <div class="form-group">
+                <label for="labels">Labels (comma separated)</label>
+                <input type="text" ng-model="projectData.labels" class="span3 form-control" id="labels" placeholder="{{labels}}" value="Soft">
+                <br>
+            </div>
+            <button ng-click="editProject(projectData)" class="btn btn-success">Edit Project</button>
+        </form>
+    </div>
+</div>

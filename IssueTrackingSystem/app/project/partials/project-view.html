@@ -1,6 +1,8 @@
 <div class="widget widget-nopad" ng-controller="Project" ng-init="getProjectById()">
     <div class="widget-header">
         <i class="icon-book"></i><h3>Project Name : {{project.Name}} | Project Key : <em style="color: tomato;">{{project.ProjectKey}}</em></h3>
+        <button ng-controller="User"  ng-show="isAdmin()" class="right btn btn-success"><a href="#/projects/{{project.Id}}/edit">Edit Project</a></button>
+        <button ng-controller="User"  ng-show="isAdmin()" class="right btn btn-success"><a href="#/projects/{{project.Id}}/add-issue">Add Issue</a></button>
     </div>
     <div class="widget-content">
         <div class="widget big-stats-container">

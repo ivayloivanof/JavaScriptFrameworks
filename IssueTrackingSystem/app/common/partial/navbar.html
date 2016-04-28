@@ -3,14 +3,13 @@
         <div class="container">
             <ul class="mainnav">
                 <li class="active">
-                    <a href="index.html"><i class="icon-dashboard"></i><span>Dashboard</span></a>
+                    <a href="#/"><i class="icon-dashboard"></i><span>Dashboard</span></a>
                 </li>
                 <li ng-show="isAdmin()">
-                    <a href="#/projects/add-project"><i class="icon-edit"></i><span>Add Project</span> </a>
+                    <a href="#/projects/add"><i class="icon-edit"></i><span>Add Project</span> </a>
                 </li>
-                <li ng-controller="Project" ng-show="isAdmin()">
-                    <!--TODO edit link add-issue -->
-                    <a href="#/projects/:id/add-issue"><i class="icon-sitemap"></i><span>Add Issue</span> </a>
+                <li ng-show="isAdmin()">
+                    <a href="#/users" class="shortcut"><i class="icon-user"></i><span class="shortcut-label">All Users</span></a>
                 </li>
                 <!--<li><a href="charts.html"><i class="icon-bar-chart"></i><span>Charts</span> </a></li>-->
                 <!--<li><a href="shortcodes.html"><i class="icon-code"></i><span>Shortcodes</span> </a></li>-->
@@ -28,8 +27,5 @@
                 </li>
             </ul>
         </div>
-        <!-- /container -->
     </div>
-    <!-- /subnavbar-inner -->
 </div>
-<!-- /subnavbar -->

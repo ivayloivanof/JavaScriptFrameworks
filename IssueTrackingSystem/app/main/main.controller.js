@@ -3,7 +3,7 @@
 angular.module('IssueTrackingSystem.controllers.main', [])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {
-            templateUrl: 'app/template/home.html',
+            templateUrl: 'app/main/partials/home.html',
             controller: 'Main'
         });
     }])

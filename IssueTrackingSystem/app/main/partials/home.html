@@ -1,17 +1,14 @@
 <!--if not login user-->
 <div class="row" ng-if="!isAuthenticated">
     <div class="span11 alert alert-{{notification.type}}" role="alert" notification-error="{{notification.status}}">{{notification.message}}</div>
-    <div class="span5" ng-include="'app/template/user/login.html'"></div>
-    <div class="span5" ng-include="'app/template/user/signup.html'"></div>
+    <div class="span5" ng-include="'app/user/partials/login.html'"></div>
+    <div class="span5" ng-include="'app/user/partials/signup.html'"></div>
 </div>
 <!--if login user-->
 <div class="row" ng-if="isAuthenticated">
     <div class="span11 alert alert-{{notification.type}}" role="alert" notification-success="{{notification.status}}">{{notification.message}}</div>
 
     <div class="span8">
-        <div ng-include="'app/template/issue/issues.html'"></div>
-    </div>
-    <div class="span4">
-        <div ng-include="'app/template/important-page.html'"></div>
+        <div ng-include="'app/issue/partials/issues.html'"></div>
     </div>
 </div>

@@ -7,4 +7,4 @@ angular.module('IssueTrackingSystem.directives.date', [])
                 $element.text($filter('date')(new Date(), $attrs.dateNow));
             }
         };
-    }])
+    }]);

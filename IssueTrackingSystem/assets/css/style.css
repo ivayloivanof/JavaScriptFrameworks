@@ -652,6 +652,15 @@ ul.messages_layout .dropdown-menu  li{ width:100%; font-size:11px;}
 }
 /*Open - Close Issue */
 
+.right {
+	float: right;
+	margin-top: 6px;
+	margin-right: 6px;
+}
+.right>a {
+	color: whitesmoke;
+}
+
 /* Full Calendar */
 
 .fc {

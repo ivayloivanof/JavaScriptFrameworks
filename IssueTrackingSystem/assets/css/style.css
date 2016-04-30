@@ -1,7 +1,7 @@
 body {
 	background: #f9f6f1;
 	font: 13px/1.7em 'Open Sans';
-	font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'Patua One', cursive, "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
     
 p { 
@@ -45,12 +45,6 @@ textarea {
 	color: #444;
 	text-transform: uppercase;
 }
-
-
-
-
-
-
 
 /*------------------------------------------------------------------
 [2. Navbar / .navbar]

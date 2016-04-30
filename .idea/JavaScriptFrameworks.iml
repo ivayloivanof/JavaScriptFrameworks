@@ -5,6 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/01.Homework.hmwrk" />
       <excludeFolder url="file://$MODULE_DIR$/02.Homework.hmwrk" />
+      <excludeFolder url="file://$MODULE_DIR$/IssueTrackingSystem/bower_components" />
     </content>
     <content url="file://$USER_HOME$/node_modules" />
     <orderEntry type="inheritedJdk" />

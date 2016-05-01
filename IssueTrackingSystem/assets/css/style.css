@@ -8,10 +8,7 @@ p {
 	font: 13px/1.7em 'Open Sans'; 	
 }
     
-input,
-button,
-select,
-textarea {
+input,button,select,textarea {
   font-family: 'Open Sans';
 }
 
@@ -56,7 +53,6 @@ textarea {
 
 .navbar-inner {
 	padding: 7px 0;
-	
 	background: #00ba8b !important;
 	
 	-moz-border-radius: 0;

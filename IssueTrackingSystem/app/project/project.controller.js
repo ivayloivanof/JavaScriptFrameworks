@@ -2,6 +2,10 @@
 angular.module('IssueTrackingSystem.controllers.project', [])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
+            .when('/projects-all', {
+                templateUrl: 'app/project/partials/projects-all.html',
+                controller: 'Project'
+            })
             .when('/projects/add', {
                 templateUrl: 'app/project/partials/project-add.html',
                 controller: 'Project'
@@ -15,7 +19,7 @@ angular.module('IssueTrackingSystem.controllers.project', [])
                 controller: 'Project'
             })
             .when('/projects', {
-                templateUrl: 'app/project/partials/projects-my.html',
+                templateUrl: 'app/project/partials/projects.html',
                 controller: 'Project'
             });
     }])

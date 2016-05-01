@@ -10,23 +10,16 @@
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/style.min.css" rel="stylesheet">
         <!--when is dashboard-->
-        <link href="assets/css/pages/dashboard.css" rel="stylesheet">
-        <!--when is login page-->
-        <link href="assets/css/pages/login-register.css" rel="stylesheet">
+        <link href="assets/css/pages/dashboard.min.css" rel="stylesheet">
         <link href='assets/css/loading-bar.min.css' rel="stylesheet" media='all' />
-
-        <!--[if lt IE 9]>
-        <script src="app/lib/html5.js"></script>
-        <![endif]-->
-
+        <script src="app/lib/html5.js"></script>    <!--[IE 9]>-->
         <script src="app/lib/angular.min.js"></script>
         <script src="app/lib/angular-route.min.js"></script>
         <script src="app/lib/ngStorage.min.js"></script>
         <script src="app/lib/jquery.min.js"></script>
         <script src='app/lib/loading-bar.min.js'></script>
-
     </head>
     <body>
         <div ng-include="'app/common/partial/top-navbar.html'"></div>
@@ -40,7 +33,7 @@
             </div>
         </div>
         <div ng-include="'app/common/partial/footer.html'"></div>
-        <!--script-->
+        <!--scripts-->
         <script src="app/lib/bootstrap.min.js"></script>
         <script src="app/app.js"></script>
         <!--Services-->
@@ -49,11 +42,13 @@
         <script src="app/user/authentication.service.js"></script>
         <script src="app/user/users.service.js"></script>
         <script src="app/issue/issues.service.js"></script>
+        <script src="app/error/error.service.js"></script>
         <!--Controllers-->
         <script src="app/main/main.controller.js"></script>
         <script src="app/user/user.controller.js"></script>
         <script src="app/project/project.controller.js"></script>
         <script src="app/issue/issue.controller.js"></script>
+        <script src="app/error/error.controller.js"></script>
         <!--notifications-->
         <script src="app/common/date.directive.js"></script>
         <script src="app/common/navbar.directive.js"></script>

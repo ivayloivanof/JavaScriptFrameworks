@@ -18,7 +18,7 @@ angular.module('IssueTrackingSystem', [
     'IssueTrackingSystem.directives.notification'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.otherwise({
-            redirectTo: '/error'
+            redirectTo: '/'
         });
     }])
     .constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/')

@@ -103,6 +103,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
 
             $scope.editIssue = function (issueEdit) {
                 $scope.issueEdit;
+                
                 //TODO load data to issue edit page and complete edit logic
                 console.log(issueEdit);
             };

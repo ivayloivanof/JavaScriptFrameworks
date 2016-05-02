@@ -6,39 +6,33 @@
     <div class="widget-content" ng-controller="Issue" ng-init="getMyIssues()">
         <ul class="messages_layout">
             <li ng-repeat="issue in issues">
-                <div class="message_wrap {{issue.Status.Name}} span7">
-                    <span class="arrow"></span>
-                    <div class="info">
-                        <div class="options_arrow">
-                            <div class="dropdown pull-right">
-                                <a class="dropdown-toggle dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
-                                    <i class=" icon-circle-arrow-down"></i>
-                                </a>
-                                <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                                    <ul>
-                                        <li><i class="icon-wrench icon-large"></i> Change Status</li>
-                                        <li ng-repeat="status in issue.AvailableStatuses">
-                                            <a class="{{status.Name}}" href="#/"><i class="icon-legal "></i> {{status.Name}}</a>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li><i class="icon-bookmark icon-large"></i> Labels</li>
-                                        <li ng-repeat="labels in issue.Labels">
-                                            <a href="#/"><i class="icon-bookmark icon-large"></i> {{labels.Name}}</a>
-                                        </li>
-                                    </ul>
-                                    <li><a href="#issues/{{issue.Id}}/edit"><i class="icon-trash icon-large"></i> Edit</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div class="message_wrap span7" ng-controller="User">
                     <div class="text">Title : <a href="#/issues/{{issue.Id}}" class="name">{{issue.Title}}</a></div>
                     <div class="text">Project : <a href="#/projects/{{issue.Project.Id}}" class="name">{{issue.Project.Name}}</a></div>
                     <div class="text">Due Date : <span class="time">{{issue.DueDate}}</span></div>
-                    <div class="text">Status : {{issue.Status.Name}}</div>
+                    <div class="text {{issue.Status.Name}}">Status : {{issue.Status.Name}}</div>
                     <div class="text">Desc : {{issue.Description}}</div>
+                    <div class="text">Labels : <i ng-repeat="labels in issue.Labels"><span class="label label-info">{{labels.Name}}</span> </i></div>
+                    <div ng-show="isAdmin()">
+                        <a class="right edit" href="#issues/{{issue.Id}}/edit"><i class="icon-trash icon-large"></i> Edit</a>
+                        <div class="dropdown right">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Change Status
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <a ng-repeat="status in issue.AvailableStatuses" class="dropdown-item {{status.Name}} icon-legal" href="#/issues/{{issue.Id}}/{{status.Name}}"> {{status.Name}}</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </li>
         </ul>
     </div>
+    <br>
+    <nav>
+        <ul class="pager">
+            <li class="pager-prev disabled"><a href="#/">Prev</a></li>
+            <li class="pager-next"><a href="#/">Next</a></li>
+        </ul>
+    </nav>
 </div>

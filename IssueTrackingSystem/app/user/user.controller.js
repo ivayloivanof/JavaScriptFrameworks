@@ -2,13 +2,28 @@
 
 angular.module('IssueTrackingSystem.controllers.user', [])
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/profile/password', {
-            templateUrl: 'app/user/partials/change-password.html',
-            controller: 'User'
-        });
+        $routeProvider
+            .when('/profile/password', {
+                templateUrl: 'app/user/partials/change-password.html',
+                controller: 'User'
+            })
+            .when('/users', {
+                templateUrl: 'app/user/partials/users-all.html',
+                controller: 'User'
+            });
     }])
     .controller('User', ['$scope', 'debug', '$location', 'authentication', '$sessionStorage', 'users',
         function user($scope, debug, $location, authentication, $sessionStorage, users) {
+
+            //completed
+            $scope.getAllUsers = function () {
+                users.getAllUsers()
+                    .then(function (users) {
+                        //if debug mode is activated
+                        debug ? console.log('All users:', users) : '';
+                        $scope.allUsers = users.data;
+                    });
+            };
 
             //completed
             $scope.loginUserInSystem = function (user) {
@@ -58,6 +73,7 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                     .then(function (changed) {
                         //if debug mode is activated
                         debug ? console.log('Changed password:', changed) : '';
+                        $location.path('/');
                     }, function (error) {
                         console.error(error);
                     });

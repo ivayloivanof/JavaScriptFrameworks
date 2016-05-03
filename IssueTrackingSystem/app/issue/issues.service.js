@@ -79,12 +79,12 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
-            function getMyIssues() {
+            function getMyIssues(pageNumber) {
                 var deferred = $q.defer();
                 //TODO add parameters on function
                 $http({
                     method: 'get',
-                    url: BASE_URL + 'issues/me?orderBy=Project.Name desc, IssueKey&pageSize=2&pageNumber=1',
+                    url: BASE_URL + 'issues/me?orderBy=DueDate,IssueKey&pageSize=5&pageNumber=' + pageNumber,
                     headers : header.authenticationHeader()
                 }).then(function (succes) {
                     deferred.resolve(succes);
@@ -134,7 +134,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
 
                 $http({
                     method : 'put',
-                    url : BASE_URL + 'issues/' + id +'/changestatus?statusid=' + statusId,
+                    url : BASE_URL + 'issues/' + id + '/changestatus?statusid=' + statusId,
                     data : null,
                     headers : header.authenticationHeader()
                 }).then(function (success) {

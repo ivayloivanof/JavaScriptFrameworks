@@ -20,9 +20,10 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 controller: 'Issue'
             });
     }])
-    .controller('Issue', ['$scope', 'debug', 'issues', '$routeParams', '$route',
-        function ($scope, debug, issues, $routeParams, $route) {
+    .controller('Issue', ['$scope', 'debug', 'pageNumber', 'issues', '$routeParams', '$route', '$location',
+        function ($scope, debug, pageNumber, issues, $routeParams, $route, $location) {
 
+            $scope.page = pageNumber;
             //completed
             $scope.getAllIssues = function getAllIssues() {
                 issues.getAllIssues('In Progress', 31, 1000, 1)
@@ -68,12 +69,21 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
 
             //completed
             $scope.getMyIssues = function () {
-                issues.getMyIssues()
+                console.log(pageNumber);
+                issues.getMyIssues(pageNumber)
                     .then(function (issues) {
                         //if debug mode is activated
                         debug ? console.log('All my issues:', issues) : '';
                         $scope.issues = issues.data.Issues;
                     });
+            };
+
+            $scope.nextPage = function nextPage(page) {
+                console.log(page);
+            };
+
+            $scope.prevPage = function prevPage(page) {
+                console.log(page);
             };
 
             //admin or lead - for other not working
@@ -98,6 +108,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                     .then(function (success) {
                         //if debug mode is activated
                         debug ? console.log('Add issue success:', success) : '';
+                        $location.path('/');
                     });
             };
 

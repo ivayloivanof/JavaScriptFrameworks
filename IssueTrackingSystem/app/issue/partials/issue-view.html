@@ -1,5 +1,5 @@
 <div class="widget" ng-controller="Issue" ng-init="getIssueById()">
-    <div ng-controller="User" ng-show="isAdmin()">
+    <div ng-controller="User">
         <div class="widget-header">
             <i class="icon-sitemap"></i>
             <h3>IssueKey : <em style="color: tomato;">{{issue.IssueKey}}</em></h3>
@@ -20,7 +20,7 @@
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Change Status
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu1" ng-controller="IssueChangeStatus">
                                     <a ng-repeat="status in issue.AvailableStatuses" class="dropdown-item {{status.Name}} icon-legal" href="#/issues/{{issue.Id}}/{{status.Name}}"> {{status.Name}}</a>
                                 </div>
                             </div>
@@ -38,7 +38,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="text span4">
                         <form method="post" ng-show="isAdmin()" ng-init="getCurrentUser()">
                             <h3>Add Comment</h3>

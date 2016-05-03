@@ -9,5 +9,5 @@ angular.module('IssueTrackingSystem.controllers.error', [])
     }])
     .controller('Error', ['$scope', '$sessionStorage',
         function ($scope, $sessionStorage) {
-
+            //TODO
         }]);

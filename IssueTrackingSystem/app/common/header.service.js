@@ -3,7 +3,6 @@
 angular.module('IssueTrackingSystem.services.header', [])
     .factory('header', ['$sessionStorage',
         function header($sessionStorage) {
-            
             //completed
             function authenticationHeader() {
                 return {

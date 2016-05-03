@@ -31,7 +31,7 @@ angular.module('IssueTrackingSystem.directives.notification', [])
                 $scope.notification = {
                     status: 'hide',
                     type: 'error',
-                    message: 'Error! User is not login!'
+                    message: 'Error! User is not login! '
                 };
             }],
             link: function notLogin(scope, element, attrs) {

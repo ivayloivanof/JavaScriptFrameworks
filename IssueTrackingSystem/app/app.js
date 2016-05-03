@@ -13,6 +13,7 @@ angular.module('IssueTrackingSystem', [
     'IssueTrackingSystem.controllers.project',
     'IssueTrackingSystem.controllers.user',
     'IssueTrackingSystem.controllers.issue',
+    'IssueTrackingSystem.controllers.issueChangeStatus',
     'IssueTrackingSystem.directives.date',
     'IssueTrackingSystem.directives.navbar',
     'IssueTrackingSystem.directives.notification'])
@@ -22,4 +23,5 @@ angular.module('IssueTrackingSystem', [
         });
     }])
     .constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/')
-    .value('debug', true);
+    .value('debug', true)
+    .value('pageNumber', 1);

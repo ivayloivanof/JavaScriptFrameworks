@@ -5,23 +5,6 @@ angular.module('IssueTrackingSystem.services.labels', [])
         function ($http, $q, BASE_URL, header) {
 
             //completed
-            function getAllLabels() {
-                var deferred = $q.defer();
-
-                $http({
-                    method: 'get',
-                    url: BASE_URL + 'labels/?filter=',
-                    headers: header.authenticationHeader()
-                }).then(function (success) {
-                    deferred.resolve(success);
-                }).then(function (error) {
-                    deferred.reject(error);
-                });
-
-                return deferred.promise;
-            }
-
-            //completed
             function getLabelsWithFilter(filter) {
                 var deferred = $q.defer();
 
@@ -39,7 +22,6 @@ angular.module('IssueTrackingSystem.services.labels', [])
             }
 
             return {
-                getAllLabels: getAllLabels,
                 getLabelsWithFilter: getLabelsWithFilter
             };
         }]);

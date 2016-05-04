@@ -6,24 +6,22 @@ angular.module('IssueTrackingSystem.controllers.label', [])
             .when('/labels', {
                 templateUrl: 'app/labels/partials/labels.html',
                 controller: 'Label'
+            })
+            .when('/labels/?filters=:filter', {
+                templateUrl: 'app/labels/partials/labels.html',
+                controller: 'Label'
             });
     }])
-    .controller('Label', ['$scope', 'debug', 'labels',
-        function ($scope, debug, labels) {
+    .controller('Label', ['$scope', 'debug', '$routeParams', 'labels',
+        function ($scope, debug, $routeParams, labels) {
 
             //completed
-            $scope.getAllLabels = function getAllLabels() {
-                labels.getAllLabels()
-                    .then(function (labels) {
-                        //if debug mode is activated
-                        debug ? console.log('All labels:', labels) : '';
-                        $scope.labels = labels.data;
-                    });
-            };
+            $scope.getLabelsWithFilter = function getLabelsWithFilter() {
+                if ($routeParams.filters === undefined) {
+                    $routeParams.filters = '';
+                }
 
-            //completed
-            $scope.getLabelsWithFilter = function getLabelsWithFilter(filter) {
-                labels.getLabelsWithFilter(filter)
+                labels.getLabelsWithFilter($routeParams.filters)
                     .then(function (filteredLabels) {
                         //if debug mode is activated
                         debug ? console.log('All filtered Labels:', filteredLabels) : '';

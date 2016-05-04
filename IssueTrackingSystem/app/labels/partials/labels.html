@@ -1,8 +1,7 @@
-<div class="widget" ng-controller="Label" ng-init="getAllLabels()">
+<div class="widget" ng-controller="Label" ng-init="getLabelsWithFilter()">
     <div class="widget-content">
-        <h3>All Labels</h3>
         <ul class="messages_layout">
-            <li ng-repeat="label in labels">
+            <li ng-repeat="label in labelsFiltered">
                 <span class="label label-info">{{label.Name}}</span>
             </li>
         </ul>

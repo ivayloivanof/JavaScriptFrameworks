@@ -1,5 +1,5 @@
 <div class="account-container" ng-controller="Issue">
-    <div class="content clearfix">
+    <div class="content clearfix span3">
         <h2>Add Issue</h2>
         <form method="post" ng-controller="Project">
             <div class="form-group" ng-init="getAllUsers()">
@@ -42,7 +42,8 @@
                 <label for="description">Description</label>
                 <textarea class="span3 form-control" ng-model="issue.description" id="description" placeholder="Description"></textarea>
             </div>
-            <button ng-click="addIssue(issue)" class="btn btn-success">Create Issue</button>
+            <br>
+            <button ng-click="addIssue(issue)" class="btn btn-success right">Create Issue</button>
         </form>
     </div>
 </div>

@@ -31,7 +31,7 @@
                         <i class="icon-sitemap"> Issues</i>
                         <ol ng-init="getIssueByProjectId()">
                             <li class="list-style-none {{issue.Status.Name}}" ng-repeat="issue in issues">
-                                <button type="button" class="btn btn-warning" data-toggle="modal"
+                                <button type="button" class="btn btn-my" data-toggle="modal"
                                         data-target="#{{issue.Id}}">{{issue.Title}}
                                 </button>
                                 <div id="{{issue.Id}}" class="modal fade" role="dialog">
@@ -41,14 +41,32 @@
                                             <div class="modal-header">
                                                 <button type="button" class="close"
                                                         data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">{{issue.Title}}</h4>
+                                                <h2 class="modal-title">{{issue.Title}}</h2>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Some text in the modal.</p>
-                                                <p>Some text in the modal.</p>
-                                                <p>Some text in the modal.</p>
-                                                <a href="#/issues/{{issue.Id}}">{{issue.Status.Name}} :
-                                                    {{issue.Title}}</a>
+                                                <ul class="list-group">
+                                                    <li class="list-group-item">
+                                                        <span>Author: {{issue.Author.Username}}</span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span>Author Id: {{issue.Author.Id}}</span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span>Description: {{issue.Description}}</span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span>Due Date: {{issue.DueDate}}</span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        Labels:
+                                                        <span ng-repeat="label in issue.Labels">
+                                                                <span class="label label-info">{{label.Name}}</span>
+                                                        </span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span>Status: {{issue.Status.Name}}</span>
+                                                    </li>
+                                                </ul>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">

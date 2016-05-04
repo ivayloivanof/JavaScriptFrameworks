@@ -529,7 +529,7 @@ ul.messages_layout .dropdown-menu li {
 }
 
 .Closed, .Closed > a, a.Closed {
-    color: grey;
+    color: #467280;
     font-size: 15px;
 }
 
@@ -1186,6 +1186,12 @@ table.fc-border-separate {
 
 .btn-github-alt i {
     color: #333;
+}
+
+.btn-my {
+    background-color: #e5e2dd;
+    opacity: 0.7;
+    margin-bottom: 5px;
 }
 
 .all-icons li {

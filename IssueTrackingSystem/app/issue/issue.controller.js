@@ -24,6 +24,17 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
         function ($scope, debug, pageNumber, issues, $routeParams, $route, $location) {
 
             $scope.page = pageNumber;
+
+            //for edit issue - completed
+            function getLabels() {
+                var index;
+                $scope.labels = '';
+                for (index in $scope.issue.Labels) {
+                    $scope.labels += $scope.issue.Labels[index].Name + ',';
+                }
+                $scope.labels = $scope.labels.replace(/,(\s+)?$/, '');
+            }
+
             //completed
             $scope.getAllIssues = function getAllIssues() {
                 issues.getAllIssues('In Progress', 31, 1000, 1)
@@ -42,6 +53,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                         debug ? console.log('Route params:', $routeParams) : '';
                         debug ? console.log('Issue by Id:', issue) : '';
                         $scope.issue = issue.data;
+                        getLabels();
                     });
             };
 
@@ -113,10 +125,27 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
             };
 
             $scope.editIssue = function (issueEdit) {
-                $scope.issueEdit;
-                
-                //TODO load data to issue edit page and complete edit logic
-                console.log(issueEdit);
+                var issueEditComplete = {
+                    Id: $routeParams.id,
+                    AssigneeId: issueEdit.assigneeId,
+                    Title: issueEdit.title,
+                    Description: issueEdit.description,
+                    DueDate: issueEdit.dueDate,
+                    PriorityId: issueEdit.priority,
+                    Labels: []
+                };
+                issueEdit.labels = issueEdit.labels.split(',');
+                issueEdit.labels.forEach(function (label) {
+                    issueEditComplete.Labels.push({Name: label.trim()});
+                });
+                console.log(issueEditComplete);
+                issues.editIssueById($routeParams.id, issueEditComplete)
+                    .then(function (editedIssue) {
+                        //if debug mode is activated
+                        debug ? console.log('Route params:', $routeParams) : '';
+                        debug ? console.log('Edited issue:', editedIssue) : '';
+                        $location.path('/issues/' + $routeParams.id);
+                    });
             };
 
             //completed

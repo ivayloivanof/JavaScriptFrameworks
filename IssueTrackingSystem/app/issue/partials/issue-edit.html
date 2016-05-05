@@ -1,42 +1,51 @@
-<div class="account-container" ng-controller="Issue">
-    <div class="content clearfix">
+<div class="account-container" ng-controller="Issue" ng-init="getIssueById()">
+    <div class="content clearfix span3">
         <h2>Edit Issue</h2>
-        <form method="post" ng-controller="Project">
+        <form method="post" ng-controller="Project" ng-init="getAllProjects()">
             <div class="form-group" ng-init="getAllUsers()">
-                <label for="Assignee">Assignee</label>
+                <label for="Assignee">Assignee : {{issue.Assignee.Username}}</label>
                 <select ng-model="issueEdit.assigneeId" id="Assignee" class="span3 form-control">
                     <option ng-repeat="user in allUsers | orderBy:'Username'" value="{{user.Id}}">{{user.Username}}</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="Project">Projects</label>
-                <input type="text" ng-model="issue.projectId" class="span3 form-control" id="Project" placeholder="{{issueEdit.Project.Id}}" value="{{issueEdit.Project.Name}}"/>
-            </div>
-            <div class="form-group">
-                <label for="Due">Due</label>
-                <input type="date" ng-model="issue.dueDate" class="span3 form-control" id="Due" />
-            </div>
-            <div class="form-group">
-                <label for="Priorities">Priorities</label>
-                <select ng-model="issue.priorityId" id="Priorities" class="span3 form-control">
-                    <option value="{{issueEdit.Priority.Id}}">{{issueEdit.Priority.Name}}</option>
+                <label for="Project">Projects : {{issue.Project.Name}}</label>
+                <select ng-model="issueEdit.project" id="Project" class="span3 form-control">
+                    <option ng-repeat="project in projects | orderBy:'Name'" value="{{project.Id}}">{{project.Name}}
+                    </option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="labels">Labels (comma separated)</label>
-                <input type="text" ng-model="issue.labels" class="span3 form-control" id="labels" placeholder="{{labels}}" value="{{labels}}">
+                <label for="Due">Due : {{issue.DueDate}}</label>
+                <input type="date" ng-model="issueEdit.dueDate" class="span3 form-control" id="Due"/>
+            </div>
+            <div class="form-group">
+                <label for="Priority">Priority</label>
+                <select ng-model="issueEdit.priority" id="Priority" class="span3 form-control">
+                    <option ng-repeat="priority in prioritiesAll | orderBy:'Name'" value="{{priority.Id}}">
+                        {{priority.Name}}
+                    </option>
+                </select>
                 <br>
             </div>
             <div class="form-group">
-                <label for="Title">Title {{issueEdit}}</label>
-                <input type="text" ng-model="issue.title" class="span3 form-control" id="Title" placeholder="{{issueEdit.Title}}" value="{{issueEdit.Title}}">
+                <label for="labels">Labels (comma separated)</label>
+                <input type="text" ng-model="issueEdit.labels" class="span3 form-control" id="labels"
+                       placeholder="{{labels}}" value="{{labels}}">
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="Title">Title : {{issue.Title}}</label>
+                <input type="text" ng-model="issueEdit.title" class="span3 form-control" id="Title"
+                       placeholder="{{issueEdit.Title}}" value="{{issueEdit.Title}}">
                 <br>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="span3 form-control" ng-model="issue.description" id="description" placeholder="{{issueEdit.Description}}"></textarea>
+                <textarea class="span3 form-control" ng-model="issueEdit.description" id="description"
+                          placeholder="{{issue.Description}}"></textarea>
             </div>
-            <button ng-click="editIssue(issue)" class="btn btn-success">Edit Issue</button>
+            <button ng-click="editIssue(issueEdit)" class="btn btn-success">Edit Issue</button>
         </form>
     </div>
 </div>

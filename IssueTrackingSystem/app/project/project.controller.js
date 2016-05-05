@@ -26,6 +26,7 @@ angular.module('IssueTrackingSystem.controllers.project', [])
     .controller('Project', ['$scope', 'debug', 'projects', 'users', '$routeParams', '$location', '$sessionStorage',
         function ($scope, debug, projects, users, $routeParams, $location, $sessionStorage) {
 
+            $scope.prioritiesAll = [];
             //completed
             $scope.getAllUsers = function () {
                 users.getAllUsers()
@@ -121,6 +122,15 @@ angular.module('IssueTrackingSystem.controllers.project', [])
                     });
             };
 
+            //remove duplicate
+            function uniqBy(a, key) {
+                var seen = {};
+                return a.filter(function (item) {
+                    var k = key(item);
+                    return seen.hasOwnProperty(k) ? false : (seen[k] = true);
+                });
+            }
+
             //completed
             $scope.getAllProjects = function getAllProjects() {
                 projects.getAllProjects()
@@ -128,6 +138,12 @@ angular.module('IssueTrackingSystem.controllers.project', [])
                         //if debug mode is activated
                         debug ? console.log('All projects:', projects) : '';
                         $scope.projects = projects.data;
+                        $scope.projects.forEach(function (project) {
+                            project.Priorities.forEach(function (prioroty) {
+                                $scope.prioritiesAll.push(prioroty);
+                            });
+                        });
+                        $scope.prioritiesAll = uniqBy($scope.prioritiesAll, JSON.stringify);
                     });
             };
 

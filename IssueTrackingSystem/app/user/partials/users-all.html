@@ -1,18 +1,23 @@
 <div ng-controller="User">
     <div class="widget widget-table action-table" ng-init="getAllUsers()" ng-show="isAdmin()">
-        <table class="table span9">
+        <table class="table span12">
             <thead>
                 <tr>
-                    <th class="span2">Username</th>
+                    <th class="span3">Username</th>
                     <th class="span2">Is Admin</th>
-                    <th class="span5">UserId</th>
+                    <th class="span4">UserId</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="user in allUsers">
-                    <td>{{user.Username}}</td>
-                    <td>{{user.isAdmin}}</td>
-                    <td>{{user.Id}}</td>
+                    <td class="span3">{{user.Username}}</td>
+                    <td class="span2">
+                        {{user.isAdmin}} :
+                        <button class="btn btn-success btn-sm" ng-click="makeAdmin(user.Id)" ng-show="!user.isAdmin">
+                            Make Admin
+                        </button>
+                    </td>
+                    <td class="span4">{{user.Id}}</td>
                 </tr>
             </tbody>
         </table>

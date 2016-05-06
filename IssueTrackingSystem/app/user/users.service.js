@@ -37,29 +37,23 @@ angular.module('IssueTrackingSystem.services.users', [])
             }
 
             function makeUserAdmin(userId) {
-                getCurrentUser().then(function (logedUser) {
-                    if (!logedUser.isAdmin) {
-                        console.error('Only admins can access this endpoint.');  //TODO Notification error
-                        return;
-                    }
+                if (!$sessionStorage.isAdmin) {
+                    console.error('Only admins can change user to Admin.');  //TODO Notification error
+                }
 
-                    var deferred = $q.defer();
-                    var data = 'UserId=' + userId;
-                    $http({
-                        method: 'put',
-                        url: BASE_URL + 'users/makeadmin',
-                        data : data,
-                        headers: header.authenticationHeaderAndWWWContent()
-                    }).then(function (success) {
-                        deferred.resolve(success);
-                    }, function (error) {
-                        deferred.reject(error);
-                    });
-
-                    return deferred.promise;
+                var deferred = $q.defer();
+                $http({
+                    method: 'put',
+                    url: BASE_URL + 'users/makeadmin',
+                    data: 'UserId=' + userId,
+                    headers: header.authenticationHeaderAndWWWContent()
+                }).then(function (success) {
+                    deferred.resolve(success);
                 }, function (error) {
-                    console.error(error);
+                    deferred.reject(error);
                 });
+
+                return deferred.promise;
             }
 
             function changePassword(changedData) {

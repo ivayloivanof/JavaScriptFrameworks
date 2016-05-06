@@ -12,8 +12,8 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                 controller: 'User'
             });
     }])
-    .controller('User', ['$scope', 'debug', '$location', 'authentication', '$sessionStorage', 'users',
-        function user($scope, debug, $location, authentication, $sessionStorage, users) {
+    .controller('User', ['$scope', 'debug', '$location', 'authentication', '$sessionStorage', 'users', '$route',
+        function user($scope, debug, $location, authentication, $sessionStorage, users, $route) {
 
             //completed
             $scope.getAllUsers = function () {
@@ -102,6 +102,15 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                         //if debug mode is activated
                         debug ? console.log('Current User:', currentUser) : '';
                         $scope.currentUser = currentUser.data;
+                    });
+            };
+
+            $scope.makeAdmin = function (userId) {
+                users.makeUserAdmin(userId)
+                    .then(function (success) {
+                        //if debug mode is activated
+                        debug ? console.log('User changed to admin:', success) : '';
+                        $route.reload();
                     });
             };
 

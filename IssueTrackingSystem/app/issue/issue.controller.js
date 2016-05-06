@@ -140,7 +140,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 issueEdit.labels.forEach(function (label) {
                     issueEditComplete.Labels.push({Name: label.trim()});
                 });
-                console.log(issueEditComplete);
+
                 issues.editIssueById($routeParams.id, issueEditComplete)
                     .then(function (editedIssue) {
                         //if debug mode is activated

@@ -128,4 +128,11 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                 }
                 return false;
             };
+
+            $scope.isAssignee = function isAssignee() {
+                if ($sessionStorage.AssigneeId === $sessionStorage.Id) {
+                    return true;
+                }
+                return false;
+            };
         }]);

@@ -20,8 +20,8 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 controller: 'Issue'
             });
     }])
-    .controller('Issue', ['$scope', 'debug', 'pageNumber', 'issues', '$routeParams', '$route', '$location',
-        function ($scope, debug, pageNumber, issues, $routeParams, $route, $location) {
+    .controller('Issue', ['$scope', 'debug', 'pageNumber', 'issues', '$routeParams', '$route', '$location', '$sessionStorage',
+        function ($scope, debug, pageNumber, issues, $routeParams, $route, $location, $sessionStorage) {
 
             $scope.page = pageNumber;
 
@@ -54,6 +54,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                         debug ? console.log('Issue by Id:', issue) : '';
                         $scope.issue = issue.data;
                         getLabels();
+                        $sessionStorage.AssigneeId = issue.data.Assignee.Id;
                     });
             };
 
@@ -105,7 +106,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 var issueCompleteObject = {
                     Title: issue.title,
                     Description: issue.description,
-                    DueDate: issue.dueDate, //Todo date is problem - 29.04.2016 ever
+                    DueDate: issue.dueDate,
                     ProjectId: issue.projectId,
                     AssigneeId: issue.assigneeId,
                     PriorityId: issue.priorityId,
@@ -125,6 +126,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
             };
 
             $scope.editIssue = function (issueEdit) {
+                //TODO check admin or lead
                 var issueEditComplete = {
                     Id: $routeParams.id,
                     AssigneeId: issueEdit.assigneeId,

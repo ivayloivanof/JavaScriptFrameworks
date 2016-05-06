@@ -46,6 +46,8 @@ angular.module('IssueTrackingSystem.services.authentication', [])
                 delete $sessionStorage.username;
                 delete $sessionStorage.isAdmin;
                 delete $sessionStorage.Id;
+                delete $sessionStorage.LeadId;
+                delete $sessionStorage.AssigneeId;
                 $sessionStorage.isAuthenticated = false;
             }
 

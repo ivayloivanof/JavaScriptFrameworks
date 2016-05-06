@@ -2,8 +2,12 @@
     <div ng-repeat="project in myProjects.Projects">
         <div class="widget-header">
             <i class="icon-book"></i><h3>Project Name : {{project.Name}} | Project Key : <em style="color: tomato;">{{project.ProjectKey}}</em></h3>
-            <button ng-controller="User"  class="right btn btn-success"><a href="#/projects/{{project.Id}}">View Project</a></button>
-            <button ng-controller="User"  ng-show="isAdmin()" class="right btn btn-success"><a href="#/projects/{{project.Id}}/edit">Edit Project</a></button>
+            <button class="right btn btn-success">
+                <a href="#/projects/{{project.Id}}">View Project</a>
+            </button>
+            <button ng-controller="User" ng-show="isAdmin() || isLead()" class="right btn btn-success">
+                <a href="#/projects/{{project.Id}}/edit">Edit Project</a>
+            </button>
         </div>
         <div class="widget-content">
             <div class="widget big-stats-container">
@@ -25,7 +29,9 @@
                         <div class="stat">
                             <i class="icon-asterisk"> Priorities</i>
                             <ol>
-                                <li ng-repeat="prioritie in project.Priorities" class="list-style-none">{{prioritie.Name}}</li>
+                                <li ng-repeat="priority in project.Priorities" class="list-style-none">
+                                    {{priority.Name}}
+                                </li>
                             </ol>
                         </div>
                     </div>

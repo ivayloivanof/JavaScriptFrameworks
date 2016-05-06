@@ -3,6 +3,9 @@
         <div class="widget-header">
             <i class="icon-sitemap"></i>
             <h3>IssueKey : <em style="color: tomato;">{{issue.IssueKey}}</em></h3>
+            <button ng-controller="User" ng-show="isLead()" class="right btn btn-success">
+                <a href="#/issues/{{issue.Id}}/edit">Edit Issue</a>
+            </button>
         </div>
         <div class="widget-content" >
             <ul class="messages_layout">
@@ -14,7 +17,7 @@
                         <div class="text {{issue.Status.Name}}">Status : {{issue.Status.Name}}</div>
                         <div class="text">Desc : {{issue.Description}}</div>
                         <div class="text">Labels : <i ng-repeat="labels in issue.Labels"><span class="label label-info">{{labels.Name}}</span> </i></div>
-                        <div ng-show="isAdmin()">
+                        <div ng-show="isAdmin() || isAssignee()">
                             <a class="right edit" href="#issues/{{issue.Id}}/edit"><i class="icon-trash icon-large"></i> Edit</a>
                             <div class="dropdown right">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

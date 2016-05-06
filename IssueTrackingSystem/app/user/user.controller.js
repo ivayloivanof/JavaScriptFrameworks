@@ -113,8 +113,8 @@ angular.module('IssueTrackingSystem.controllers.user', [])
                 return false;
             };
 
-            $scope.isLead = function isLead(id) {
-                if ($sessionStorage.Id === id) {
+            $scope.isLead = function isLead() {
+                if ($sessionStorage.LeadId === $sessionStorage.Id) {
                     return true;
                 }
                 return false;

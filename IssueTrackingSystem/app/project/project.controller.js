@@ -187,6 +187,7 @@ angular.module('IssueTrackingSystem.controllers.project', [])
                         $scope.project = project.data;
                         getLabels();
                         getPriorities();
+                        $sessionStorage.LeadId = project.data.Lead.Id;  //Add project leadId
                     });
             };
         }]);

@@ -25,5 +25,4 @@ angular.module('IssueTrackingSystem', [
         });
     }])
     .constant('BASE_URL', 'http://softuni-issue-tracker.azurewebsites.net/')
-    .value('debug', true)
-    .value('pageNumber', 1);
+    .value('debug', true);

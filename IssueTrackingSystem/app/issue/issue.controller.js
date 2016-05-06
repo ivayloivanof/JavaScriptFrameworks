@@ -7,6 +7,10 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 templateUrl: 'app/issue/partials/issues.html',
                 controller: 'Issue'
             })
+            .when('/issues?page=:page', {
+                templateUrl: 'app/issue/partials/issues.html',
+                controller: 'Issue'
+            })
             .when('/issues/:id', {
                 templateUrl: 'app/issue/partials/issue-view.html',
                 controller: 'Issue'
@@ -20,10 +24,12 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 controller: 'Issue'
             });
     }])
-    .controller('Issue', ['$scope', 'debug', 'pageNumber', 'issues', '$routeParams', '$route', '$location', '$sessionStorage',
-        function ($scope, debug, pageNumber, issues, $routeParams, $route, $location, $sessionStorage) {
+    .controller('Issue', ['$scope', 'debug', 'issues', '$routeParams', '$route', '$location', '$sessionStorage',
+        function ($scope, debug, issues, $routeParams, $route, $location, $sessionStorage) {
 
-            $scope.page = pageNumber;
+            $scope.pageNumber = $routeParams.page ? $routeParams.page : 1;
+            $scope.pagePrev = Number($scope.pageNumber) - 1;
+            $scope.pageNext = Number($scope.pageNumber) + 1;
 
             //for edit issue - completed
             function getLabels() {
@@ -81,22 +87,13 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
             };
 
             //completed
-            $scope.getMyIssues = function () {
-                console.log(pageNumber);
+            $scope.getMyIssues = function (pageNumber) {
                 issues.getMyIssues(pageNumber)
                     .then(function (issues) {
                         //if debug mode is activated
                         debug ? console.log('All my issues:', issues) : '';
                         $scope.issues = issues.data.Issues;
                     });
-            };
-
-            $scope.nextPage = function nextPage(page) {
-                console.log(page);
-            };
-
-            $scope.prevPage = function prevPage(page) {
-                console.log(page);
             };
 
             //admin or lead - for other not working
@@ -121,7 +118,7 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                     .then(function (success) {
                         //if debug mode is activated
                         debug ? console.log('Add issue success:', success) : '';
-                        $location.path('/');
+                        $location.path('/projects/' + $routeParams.id);
                     });
             };
 

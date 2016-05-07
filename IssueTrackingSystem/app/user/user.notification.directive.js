@@ -23,29 +23,4 @@ angular.module('IssueTrackingSystem.directives.notification', [])
                 });
             }
         };
-    }])
-    .directive('notificationError', ['$timeout', '$sessionStorage', function ($timeout, $sessionStorage) {
-        return {
-            restrict: 'A',
-            controller: ['$scope', function ($scope) {
-                $scope.notification = {
-                    status: 'hide',
-                    type: 'error',
-                    message: 'Error! User is not login! '
-                };
-            }],
-            link: function notLogin(scope, element, attrs) {
-                attrs.$observe('notificationError', function () {
-                    if ($sessionStorage.isAuthenticated === false) {
-                        $(element).show();
-                        $timeout(function () {
-                            $(element).hide();
-                            scope.notification.status = 'hide';
-                        }, 4000);
-                    }
-                });
-            }
-        };
     }]);
-
-//TODO notification for error login and register

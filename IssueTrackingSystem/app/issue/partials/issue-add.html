@@ -1,7 +1,7 @@
 <div class="account-container" ng-controller="Issue">
     <div class="content clearfix span3">
         <h2>Add Issue</h2>
-        <form method="post" ng-controller="Project">
+        <form method="post" ng-controller="Project" ng-init="getProjectById()">
             <div class="form-group" ng-init="getAllUsers()">
                 <label for="Assignee">Assignee</label>
                 <select ng-model="issue.assigneeId" id="Assignee" class="span3 form-control">
@@ -13,9 +13,11 @@
                 <!--<input type="text" ng-model="issue.projectId" class="span3 form-control" id="Project" placeholder="{{project.Name}}" value="{{project.Id}}">-->
             <!--</div>-->
             <div class="form-group" ng-init="getAllProjects()">
-                <label for="Projects">Projects</label>
+                <label for="Projects">Projects : {{project.Name}}</label>
                 <select ng-model="issue.projectId" id="Projects" class="span3 form-control">
-                    <option ng-repeat="project in projects | orderBy:'Name'" value="{{project.Id}}">{{project.Name}}</option>
+                    <option ng-repeat="projectOne in projects | orderBy:'Name'" value="{{projectOne.Id}}">
+                        {{projectOne.Name}}
+                    </option>
                 </select>
             </div>
             <div class="form-group">
@@ -24,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label for="Priorities">Priorities</label>
-                <select ng-model="issue.priorityId" id="Priorities" class="span3 form-control" ng-init="getProjectById()">
+                <select ng-model="issue.priorityId" id="Priorities" class="span3 form-control">
                     <option ng-repeat="priority in project.Priorities" value="{{priority.Id}}">{{priority.Name}}</option>
                 </select>
             </div>

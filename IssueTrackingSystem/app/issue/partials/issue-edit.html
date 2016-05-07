@@ -1,5 +1,5 @@
 <div ng-controller="User">
-    <div class="account-container" ng-controller="Issue" ng-init="getIssueById()" ng-show="isLead()">
+    <div class="account-container" ng-controller="Issue" ng-init="getIssueById()" ng-show="isAdmin || isLead()">
         <div class="content clearfix span3">
             <h2>Edit Issue</h2>
             <form method="post" ng-controller="Project" ng-init="getAllProjects()">
@@ -22,10 +22,10 @@
                     <label for="Due">Due : {{issue.DueDate}}</label>
                     <input type="date" ng-model="issueEdit.dueDate" class="span3 form-control" id="Due"/>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-init="getProjectById()">
                     <label for="Priority">Priority</label>
                     <select ng-model="issueEdit.priority" id="Priority" class="span3 form-control">
-                        <option ng-repeat="priority in prioritiesAll | orderBy:'Name'" value="{{priority.Id}}">
+                        <option ng-repeat="priority in project.Priorities | orderBy:'Name'" value="{{priority.Id}}">
                             {{priority.Name}}
                         </option>
                     </select>

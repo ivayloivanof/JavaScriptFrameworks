@@ -4,7 +4,7 @@
             <i class="icon-sitemap"></i>
             <h3>IssueKey : <em style="color: tomato;">{{issue.IssueKey}}</em></h3>
             <button ng-controller="User" ng-show="isLead()" class="right btn btn-success">
-                <a href="#/issues/{{issue.Id}}/edit">Edit Issue</a>
+                <a href="#/issues/{{issue.Id}}/edit/projects={{issue.Project.Id}}">Edit Issue</a>
             </button>
         </div>
         <div class="widget-content" >

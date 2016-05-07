@@ -19,6 +19,10 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 templateUrl: 'app/issue/partials/issue-edit.html',
                 controller: 'Issue'
             })
+            .when('/issues/:id/edit/projects=:project', {
+                templateUrl: 'app/issue/partials/issue-edit.html',
+                controller: 'Issue'
+            })
             .when('/projects/:id/add-issue', {
                 templateUrl: 'app/issue/partials/issue-add.html',
                 controller: 'Issue'

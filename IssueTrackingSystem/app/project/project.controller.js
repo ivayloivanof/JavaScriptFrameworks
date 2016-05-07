@@ -179,7 +179,8 @@ angular.module('IssueTrackingSystem.controllers.project', [])
 
             //completed
             $scope.getProjectById = function getProjectById() {
-                projects.getProjectById($routeParams.id)
+                var projectId = $routeParams.project ? $routeParams.project : $routeParams.id;
+                projects.getProjectById(projectId)
                     .then(function (project) {
                         //if debug mode is activated
                         debug ? console.log('Route params:', $routeParams) : '';

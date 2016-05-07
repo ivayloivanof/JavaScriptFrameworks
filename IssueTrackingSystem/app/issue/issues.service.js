@@ -4,6 +4,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
     .factory('issues', ['$http', '$q', 'BASE_URL', 'header',
         function ($http, $q, BASE_URL, header) {
 
+            //completed
             function getAllIssues(status, dueDate, pageSize, pageNumber) {
                 var deferred, urlQuery;
                 deferred = $q.defer();
@@ -29,6 +30,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            //completed
             function getActiveUserIssues(pageSize, pageNumber, orderBy) {
                 var deferred = $q.defer();
 
@@ -47,6 +49,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            //completed
             function getIssuesById(id) {
                 var deferred = $q.defer();
 
@@ -63,6 +66,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            //completed
             function getIssuesByProjectId(id) {
                 var deferred = $q.defer();
 
@@ -79,6 +83,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            //completed
             function getMyIssues(pageNumber) {
                 var deferred = $q.defer();
                 //TODO add parameters on function
@@ -95,6 +100,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            //completed
             function addIssue(issue) {
                 var deferred = $q.defer();
 
@@ -112,6 +118,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            //completed
             function editIssueById(id, issue) {
                 var deferred = $q.defer();
 
@@ -129,6 +136,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            //completed
             function editIssueStatus(id, statusId) {
                 var deferred = $q.defer();
 
@@ -146,6 +154,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            //completed
             function getAllIssueComments(id) {
                 var deferred = $q.defer();
 
@@ -162,6 +171,7 @@ angular.module('IssueTrackingSystem.services.issues', [])
                 return deferred.promise;
             }
 
+            //completed
             function addCommentToIssue(id, comment) {
                 var deferred = $q.defer();
 

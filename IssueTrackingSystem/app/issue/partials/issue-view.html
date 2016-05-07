@@ -16,6 +16,11 @@
                         <div class="text">Due Date : <span class="time">{{issue.DueDate}}</span></div>
                         <div class="text {{issue.Status.Name}}">Status : {{issue.Status.Name}}</div>
                         <div class="text">Desc : {{issue.Description}}</div>
+                        <div class="text">Priority : {{issue.Priority.Name}} -> {{issue.Priority.Id}}</div>
+                        <div class="text">Author : <span
+                                class="time">{{issue.Author.Username}} -> {{issue.Author.Id}}</span></div>
+                        <div class="text">Assignee : <span class="time">{{issue.Assignee.Username}} -> {{issue.Assignee.Id}}</span>
+                        </div>
                         <div class="text">Labels : <i ng-repeat="labels in issue.Labels"><span class="label label-info">{{labels.Name}}</span> </i></div>
                         <div ng-show="isAdmin() || isAssignee()">
                             <a class="right edit" href="#issues/{{issue.Id}}/edit"><i class="icon-trash icon-large"></i> Edit</a>

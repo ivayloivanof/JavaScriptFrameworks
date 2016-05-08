@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="text span4">
-                        <form method="post" ng-show="isAdmin()" ng-init="getCurrentUser()">
+                        <form method="post" ng-show="isAdmin() || isLead()" ng-init="getCurrentUser()">
                             <h3>Add Comment</h3>
                             <div class="form-group">
                                 <label for="Text">Comment Text</label>

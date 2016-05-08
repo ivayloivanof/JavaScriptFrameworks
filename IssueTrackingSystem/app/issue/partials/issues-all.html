@@ -1,0 +1,46 @@
+<div class="widget" ng-controller="Issue">
+    <div class="span7" ng-init="getAllIssues(filterPage, pageSize, pageNumber)">
+        <div class="widget-header">
+            <i class="icon-sitemap"></i>
+            <h3>Issues</h3>
+        </div>
+        <div class="widget-content">
+            <ul class="messages_layout">
+                <li ng-repeat="issue in issues">
+                    <div class="message_wrap">
+                        <div class="text">Title : <a href="#/issues/{{issue.Id}}" class="name">{{issue.Title}}</a></div>
+                        <div class="text">Project : <a href="#/projects/{{issue.Project.Id}}" class="name">{{issue.Project.Name}}</a>
+                        </div>
+                        <div class="text">Due Date : <span class="time">{{issue.DueDate}}</span></div>
+                        <div class="text {{issue.Status.Name}}">Status : {{issue.Status.Name}}</div>
+                        <div class="text">Desc : {{issue.Description}}</div>
+                        <div class="text">Labels : <i ng-repeat="labels in issue.Labels"><span class="label label-info">{{labels.Name}}</span>
+                        </i></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <br>
+        <nav>
+            <ul class="pager">
+                <li class="pager-prev" ng-show="pagePrev">
+                    <a href="#/issues-all/page={{pagePrev}}/size={{pageSize}}/filter={{filterPage}}">Prev</a>
+                </li>
+                <li class="pager-next">
+                    <a href="#/issues-all/page={{pageNext}}/size={{pageSize}}/filter={{filterPage}}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="widget-content span4">
+        <div class="widget-header">
+            <i class="icon-book"></i>
+            <h3>Affiliated Project</h3>
+        </div>
+        <ul class="list-group">
+            <li ng-repeat="issue in issues" class="list-group-item">
+                <a href="#/projects/{{issue.Project.Id}}" class="name">{{issue.Project.Name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

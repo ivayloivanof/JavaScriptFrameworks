@@ -7,7 +7,11 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
                 templateUrl: 'app/issue/partials/issues.html',
                 controller: 'Issue'
             })
-            .when('/issues?page=:page', {
+            .when('/issues-all/page=:page/size=:size/filter=:filter', {
+                templateUrl: 'app/issue/partials/issues-all.html',
+                controller: 'Issue'
+            })
+            .when('/issues/page=:page/size=:size', {
                 templateUrl: 'app/issue/partials/issues.html',
                 controller: 'Issue'
             })
@@ -32,6 +36,9 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
         function ($scope, debug, issues, $routeParams, $route, $location, $sessionStorage) {
 
             $scope.pageNumber = $routeParams.page ? $routeParams.page : 1;
+            $scope.pageSize = $routeParams.size ? $routeParams.size : 5;
+            $scope.filterPage = $routeParams.filter ? $routeParams.filter : 'Status.Name == "In Progress" or DueDate.Day <= 31';
+            //pagination
             $scope.pagePrev = Number($scope.pageNumber) - 1;
             $scope.pageNext = Number($scope.pageNumber) + 1;
 
@@ -46,8 +53,8 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
             }
 
             //completed
-            $scope.getAllIssues = function getAllIssues() {
-                issues.getAllIssues('In Progress', 31, 1000, 1)
+            $scope.getAllIssues = function getAllIssues(filter, pageSize, pageNumber) {
+                issues.getAllIssues(filter, pageSize, pageNumber)
                     .then(function (issues) {
                         //if debug mode is activated
                         debug ? console.log('All issues:', issues) : '';
@@ -91,8 +98,8 @@ angular.module('IssueTrackingSystem.controllers.issue', [])
             };
 
             //completed
-            $scope.getMyIssues = function (pageNumber) {
-                issues.getMyIssues(pageNumber)
+            $scope.getMyIssues = function (pageSize, pageNumber) {
+                issues.getMyIssues(pageSize, pageNumber)
                     .then(function (issues) {
                         //if debug mode is activated
                         debug ? console.log('All my issues:', issues) : '';

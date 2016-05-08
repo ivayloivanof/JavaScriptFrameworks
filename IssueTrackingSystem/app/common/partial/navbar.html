@@ -5,6 +5,10 @@
                 <li>
                     <a href="#/"><i class="icon-dashboard"></i><span>Dashboard</span></a>
                 </li>
+                <li ng-controller="Issue">
+                    <a href="#/issues-all/page={{pageNumber}}/size={{pageSize}}/filter={{filterPage}}"><i
+                            class="icon-sitemap"></i><span>All Issues</span> </a>
+                </li>
                 <li ng-show="isAdmin()">
                     <a href="#/projects/add"><i class="icon-edit"></i><span>Add Project</span> </a>
                 </li>

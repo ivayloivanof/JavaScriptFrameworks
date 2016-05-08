@@ -5,10 +5,10 @@ angular.module('IssueTrackingSystem.services.issues', [])
         function ($http, $q, BASE_URL, header) {
 
             //completed
-            function getAllIssues(status, dueDate, pageSize, pageNumber) {
+            function getAllIssues(filter, pageSize, pageNumber) {
                 var deferred, urlQuery;
                 deferred = $q.defer();
-                urlQuery = BASE_URL + 'issues/?filter=Status.Name == "' + status + '" or DueDate.Day <=' + dueDate;  //TODO check status and dueDate
+                urlQuery = BASE_URL + 'issues/?filter=' + filter;
                 if (pageSize) {
                     urlQuery += '&pageSize=' + pageSize;
                 }
@@ -84,12 +84,13 @@ angular.module('IssueTrackingSystem.services.issues', [])
             }
 
             //completed
-            function getMyIssues(pageNumber) {
+            function getMyIssues(pageSize, pageNumber) {
                 var deferred = $q.defer();
-                //TODO add parameters on function
+
                 $http({
                     method: 'get',
-                    url: BASE_URL + 'issues/me?orderBy=DueDate,IssueKey&pageSize=5&pageNumber=' + pageNumber,
+                    url: BASE_URL + 'issues/me?orderBy=DueDate,IssueKey&pageSize=' +
+                    pageSize + '&pageNumber=' + pageNumber,
                     headers : header.authenticationHeader()
                 }).then(function (succes) {
                     deferred.resolve(succes);

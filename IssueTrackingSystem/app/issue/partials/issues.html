@@ -1,5 +1,5 @@
 <div class="widget" ng-controller="Issue">
-    <div class="span7" ng-init="getMyIssues(pageNumber)">
+    <div class="span7" ng-init="getMyIssues(pageSize, pageNumber)">
         <div class="widget-header">
             <i class="icon-sitemap"></i>
             <h3>Issues</h3>
@@ -24,10 +24,10 @@
         <nav>
             <ul class="pager">
                 <li class="pager-prev" ng-show="pagePrev">
-                    <a href="#/issues?page={{pagePrev}}">Prev</a>
+                    <a href="#/issues/page={{pagePrev}}/size={{pageSize}}">Prev</a>
                 </li>
                 <li class="pager-next">
-                    <a href="#/issues?page={{pageNext}}">Next</a>
+                    <a href="#/issues/page={{pageNext}}/size={{pageSize}}">Next</a>
                 </li>
             </ul>
         </nav>
